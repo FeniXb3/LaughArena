@@ -13,7 +13,7 @@ size = Vector2(700, 100)
 [node name="Node2D" type="Node2D"]
 
 [node name="Body" parent="." instance=ExtResource("1_je381")]
-position = Vector2(-962.887, -17.6623)
+position = Vector2(-963, -1436)
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 position = Vector2(-632, 580)

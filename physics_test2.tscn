@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://cg6dkj7nxs7bl"]
+
+[ext_resource type="PackedScene" uid="uid://gt4xscbm6au3" path="res://body.tscn" id="1_k01ux"]
+[ext_resource type="Script" path="res://exit.gd" id="2_cfl5w"]
+[ext_resource type="PackedScene" uid="uid://bmdetq2sdxcrp" path="res://physics_test.tscn" id="3_1v7ji"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7cia"]
+size = Vector2(117, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rio5p"]
+size = Vector2(700, 100)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Body" parent="." instance=ExtResource("1_k01ux")]
+position = Vector2(-326, -18)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(132, 372)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_v7cia")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = -57.0
+offset_top = -39.0
+offset_right = 58.0
+offset_bottom = 42.0
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-200, 89)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_v7cia")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
+offset_left = -57.0
+offset_top = -39.0
+offset_right = 58.0
+offset_bottom = 42.0
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-400, 395)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_v7cia")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D3"]
+offset_left = -57.0
+offset_top = -39.0
+offset_right = 58.0
+offset_bottom = 42.0
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(-632, 580)
+scale = Vector2(33.68, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("RectangleShape2D_v7cia")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D4"]
+offset_left = -57.0
+offset_top = -39.0
+offset_right = 58.0
+offset_bottom = 42.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.27, 0.27)
+
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2(1710, 579)
+script = ExtResource("2_cfl5w")
+next_level = ExtResource("3_1v7ji")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+shape = SubResource("RectangleShape2D_rio5p")
+
+[connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]

@@ -1,181 +1,19 @@
 [gd_scene load_steps=6 format=3 uid="uid://bmdetq2sdxcrp"]
 
-[ext_resource type="Script" path="res://foot.gd" id="1_wd65y"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrdee"]
-size = Vector2(273, 40)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k5v7f"]
-size = Vector2(40, 80)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hogfl"]
-size = Vector2(370, 200)
+[ext_resource type="PackedScene" uid="uid://gt4xscbm6au3" path="res://body.tscn" id="1_je381"]
+[ext_resource type="Script" path="res://exit.gd" id="2_cufx1"]
+[ext_resource type="PackedScene" uid="uid://cg6dkj7nxs7bl" path="res://physics_test2.tscn" id="3_ikxq0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v7cia"]
 size = Vector2(117, 80)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rio5p"]
+size = Vector2(700, 100)
+
 [node name="Node2D" type="Node2D"]
 
-[node name="Body" type="Node2D" parent="."]
-
-[node name="LeftLeg" type="Node2D" parent="Body"]
-position = Vector2(-449, -482)
-rotation = 0.939591
-
-[node name="1" type="RigidBody2D" parent="Body/LeftLeg"]
-
-[node name="ColorRect" type="ColorRect" parent="Body/LeftLeg/1"]
-offset_right = 273.0
-offset_bottom = 40.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/LeftLeg/1"]
-position = Vector2(136.5, 20)
-shape = SubResource("RectangleShape2D_xrdee")
-
-[node name="2" type="RigidBody2D" parent="Body/LeftLeg"]
-position = Vector2(274, 0)
-
-[node name="ColorRect" type="ColorRect" parent="Body/LeftLeg/2"]
-offset_right = 273.0
-offset_bottom = 40.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/LeftLeg/2"]
-position = Vector2(136.5, 20)
-shape = SubResource("RectangleShape2D_xrdee")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="Body/LeftLeg"]
-position = Vector2(273.684, 20.0524)
-node_a = NodePath("../1")
-node_b = NodePath("../2")
-
-[node name="LeftFoot" type="RigidBody2D" parent="Body/LeftLeg"]
-position = Vector2(546.95, -39.928)
-mass = 2.0
-script = ExtResource("1_wd65y")
-impulse_vector = Vector2(300, -1700)
-
-[node name="ColorRect" type="ColorRect" parent="Body/LeftLeg/LeftFoot"]
-offset_right = 40.0
-offset_bottom = 80.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/LeftLeg/LeftFoot"]
-position = Vector2(20, 40)
-shape = SubResource("RectangleShape2D_k5v7f")
-
-[node name="PinJoint2D2" type="PinJoint2D" parent="Body/LeftLeg"]
-position = Vector2(546.074, 18.8873)
-node_a = NodePath("../2")
-node_b = NodePath("../LeftFoot")
-
-[node name="RightLeg" type="Node2D" parent="Body"]
-position = Vector2(-642, -449)
-rotation = 1.83236
-
-[node name="1" type="RigidBody2D" parent="Body/RightLeg"]
-
-[node name="ColorRect" type="ColorRect" parent="Body/RightLeg/1"]
-offset_right = 273.0
-offset_bottom = 40.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/RightLeg/1"]
-position = Vector2(136.5, 20)
-shape = SubResource("RectangleShape2D_xrdee")
-
-[node name="2" type="RigidBody2D" parent="Body/RightLeg"]
-position = Vector2(274, 0)
-
-[node name="ColorRect" type="ColorRect" parent="Body/RightLeg/2"]
-offset_right = 273.0
-offset_bottom = 40.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/RightLeg/2"]
-position = Vector2(136.5, 20)
-shape = SubResource("RectangleShape2D_xrdee")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="Body/RightLeg"]
-position = Vector2(273.684, 20.0524)
-node_a = NodePath("../1")
-node_b = NodePath("../2")
-
-[node name="RightFoot" type="RigidBody2D" parent="Body/RightLeg"]
-position = Vector2(546.502, -0.333137)
-rotation = -0.00653154
-scale = Vector2(1, 1)
-mass = 2.0
-script = ExtResource("1_wd65y")
-action_key = "move_right"
-impulse_vector = Vector2(-300, -1700)
-
-[node name="ColorRect" type="ColorRect" parent="Body/RightLeg/RightFoot"]
-offset_right = 40.0
-offset_bottom = 80.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/RightLeg/RightFoot"]
-position = Vector2(20, 40)
-shape = SubResource("RectangleShape2D_k5v7f")
-
-[node name="PinJoint2D2" type="PinJoint2D" parent="Body/RightLeg"]
-position = Vector2(545.688, 23.6947)
-node_a = NodePath("../2")
-node_b = NodePath("../RightFoot")
-
-[node name="Torso" type="RigidBody2D" parent="Body"]
-position = Vector2(-493, -839)
-rotation = 1.49224
-
-[node name="ColorRect" type="ColorRect" parent="Body/Torso"]
-offset_right = 370.0
-offset_bottom = 200.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Torso"]
-position = Vector2(185, 100)
-shape = SubResource("RectangleShape2D_hogfl")
-
-[node name="PinJoint2D" type="PinJoint2D" parent="Body"]
-position = Vector2(-464, -470)
-node_a = NodePath("../Torso")
-node_b = NodePath("../LeftLeg/1")
-
-[node name="PinJoint2D2" type="PinJoint2D" parent="Body"]
-position = Vector2(-663, -455)
-node_a = NodePath("../Torso")
-node_b = NodePath("../RightLeg/1")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(132, 372)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource("RectangleShape2D_v7cia")
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
-offset_left = -57.0
-offset_top = -39.0
-offset_right = 58.0
-offset_bottom = 42.0
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(-200, 89)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-shape = SubResource("RectangleShape2D_v7cia")
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D2"]
-offset_left = -57.0
-offset_top = -39.0
-offset_right = 58.0
-offset_bottom = 42.0
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2(-400, 395)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
-shape = SubResource("RectangleShape2D_v7cia")
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D3"]
-offset_left = -57.0
-offset_top = -39.0
-offset_right = 58.0
-offset_bottom = 42.0
+[node name="Body" parent="." instance=ExtResource("1_je381")]
+position = Vector2(-962.887, -17.6623)
 
 [node name="StaticBody2D4" type="StaticBody2D" parent="."]
 position = Vector2(-632, 580)
@@ -192,3 +30,13 @@ offset_bottom = 42.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.27, 0.27)
+
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2(1710, 579)
+script = ExtResource("2_cufx1")
+next_level = ExtResource("3_ikxq0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+shape = SubResource("RectangleShape2D_rio5p")
+
+[connection signal="body_entered" from="Exit" to="Exit" method="_on_body_entered"]

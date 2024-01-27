@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3nqtlirxjjyy"]
+
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_ue7yx"]
+[ext_resource type="PackedScene" uid="uid://dq6tvhqcy2aps" path="res://addons/EasyMenus/Scenes/main_menu.tscn" id="2_bhx7d"]
+[ext_resource type="PackedScene" uid="uid://bi3em85ir1kvm" path="res://bulletHellMap.tscn" id="3_yo86o"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_ue7yx")
+
+[node name="bullethell" parent="." instance=ExtResource("3_yo86o")]
+process_mode = 4
+visible = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" parent="CanvasLayer" instance=ExtResource("2_bhx7d")]
+
+[connection signal="start_game_pressed" from="CanvasLayer/MainMenu" to="." method="_on_main_menu_start_game_pressed"]

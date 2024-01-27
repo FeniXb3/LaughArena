@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdthgj4p76fdf"]
+[gd_scene load_steps=9 format=3 uid="uid://bdthgj4p76fdf"]
 
 [ext_resource type="Texture2D" uid="uid://ch1mk7q7dy0py" path="res://icon.png" id="1_wwx5m"]
-[ext_resource type="PackedScene" uid="uid://ceoeg04e6gurv" path="res://water.tscn" id="5_3grh0"]
-[ext_resource type="PackedScene" uid="uid://byh3flua4ky2f" path="res://bullets.tscn" id="5_53jcw"]
-[ext_resource type="PackedScene" uid="uid://c77x8fmpt1ngl" path="res://player2.tscn" id="5_y87s1"]
-[ext_resource type="PackedScene" uid="uid://i4vfjjtivq8g" path="res://turret2.tscn" id="8_ynnnl"]
+[ext_resource type="PackedScene" uid="uid://ceoeg04e6gurv" path="res://Scenes/water.tscn" id="5_3grh0"]
+[ext_resource type="PackedScene" uid="uid://byh3flua4ky2f" path="res://Scenes/bullets.tscn" id="5_53jcw"]
+[ext_resource type="PackedScene" uid="uid://c77x8fmpt1ngl" path="res://Scenes/player2.tscn" id="5_y87s1"]
+[ext_resource type="PackedScene" uid="uid://bj8al28eu20dd" path="res://Director.tscn" id="6_g5hfq"]
+[ext_resource type="PackedScene" uid="uid://i4vfjjtivq8g" path="res://Scenes/turret2.tscn" id="8_ynnnl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w11m8"]
 texture = ExtResource("1_wwx5m")
@@ -229,3 +230,6 @@ scale = Vector2(0.3, 0.3)
 [node name="water2" parent="." instance=ExtResource("5_3grh0")]
 position = Vector2(181, 61)
 scale = Vector2(0.09, 0.3)
+
+[node name="Director" parent="." instance=ExtResource("6_g5hfq")]
+enemy_scene = ExtResource("8_ynnnl")

@@ -9,6 +9,7 @@ script = ExtResource("1_vs0l5")
 ammo = ExtResource("2_wgdcx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_xns1j")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

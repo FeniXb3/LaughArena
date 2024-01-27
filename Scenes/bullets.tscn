@@ -3,14 +3,16 @@
 [ext_resource type="Script" path="res://Scripts/bullets.gd" id="1_2o8ih"]
 [ext_resource type="Texture2D" uid="uid://ch1mk7q7dy0py" path="res://icon.png" id="2_cqhf7"]
 
-
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_01way"]
+bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_15q7d"]
 radius = 6.66667
 
 [node name="bullets" type="RigidBody2D"]
-scale = Vector2(0.15, 0.15)
+collision_layer = 4
+collision_mask = 7
+mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_01way")
 max_contacts_reported = 5
 contact_monitor = true
@@ -22,7 +24,7 @@ scale = Vector2(0.666667, 0.666667)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-4.76837e-07, -4.76837e-07)
-scale = Vector2(0.104167, 0.104167)
+scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_cqhf7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

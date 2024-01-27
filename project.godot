@@ -55,3 +55,4 @@ move_right={
 
 2d_physics/layer_1="Objects"
 2d_physics/layer_2="Player"
+2d_physics/layer_3="Bullets"

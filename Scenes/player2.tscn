@@ -10,7 +10,7 @@ bounce = 0.5
 size = Vector2(120, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkdj7"]
-size = Vector2(200, 200)
+size = Vector2(184, 184)
 
 [node name="player" type="RigidBody2D"]
 collision_mask = 46
@@ -23,6 +23,9 @@ linear_damp = 5.0
 script = ExtResource("1_xvaa5")
 speed = 10.0
 health_regeneration = 0.001
+
+[node name="ScoreTimer" type="Timer" parent="."]
+autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_mwaex")
@@ -48,5 +51,6 @@ input_pickable = false
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_mkdj7")
 
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DeflectionTimer" to="." method="_on_deflection_timer_timeout"]

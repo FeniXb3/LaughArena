@@ -217,6 +217,20 @@ enemy_scene = ExtResource("8_ynnnl")
 turrets_parent = NodePath("..")
 ammo_parent = NodePath("..")
 
+[node name="spawnery" type="Node2D" parent="Director"]
+
+[node name="Marker2D" type="Marker2D" parent="Director/spawnery"]
+position = Vector2(262, 93)
+
+[node name="Marker2D2" type="Marker2D" parent="Director/spawnery"]
+position = Vector2(1723, 145)
+
+[node name="Marker2D3" type="Marker2D" parent="Director/spawnery"]
+position = Vector2(178, 927)
+
+[node name="Marker2D4" type="Marker2D" parent="Director/spawnery"]
+position = Vector2(1742, 969)
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_kks57")
 format = 2

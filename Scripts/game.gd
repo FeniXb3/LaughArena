@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var ommit_start_menu = false
 @export var level_scene : PackedScene
 @onready var menu_layer = $MenuLayer
 @onready var main_menu = %MainMenu
@@ -11,6 +12,9 @@ var level : Node
 
 func _ready():
 	SignalBus.game_over.connect(_on_game_over)
+	
+	if ommit_start_menu:
+		_on_main_menu_start_game_pressed()
 	
 func _input(event):
 	if (event.is_action_pressed("ui_cancel") or event.is_action_pressed("pause")) and not pause_menu.visible:

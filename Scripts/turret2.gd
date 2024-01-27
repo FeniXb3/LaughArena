@@ -1,4 +1,4 @@
-extends Node2D
+extends StaticBody2D
 
 @onready var ray_cast_2d = $RayCast2D
 @onready var timer = $Timer

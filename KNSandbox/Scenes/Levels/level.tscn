@@ -1,3 +1,52 @@
-[gd_scene format=3 uid="uid://cp4sil3ijjfh4"]
+[gd_scene load_steps=5 format=3 uid="uid://cp4sil3ijjfh4"]
+
+[ext_resource type="PackedScene" uid="uid://l1sfhwnukuef" path="res://KNSandbox/Scenes/Player/player.tscn" id="1_5cu3g"]
+[ext_resource type="PackedScene" uid="uid://cjql65h6387wb" path="res://KNSandbox/Scenes/Wall.tscn" id="2_ikr14"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="3_b764l"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="3_t80s2"]
 
 [node name="Level" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_5cu3g")]
+position = Vector2(531, 307)
+
+[node name="Wall" parent="." instance=ExtResource("2_ikr14")]
+position = Vector2(-40, 0)
+scale = Vector2(30, 1)
+
+[node name="Wall2" parent="." instance=ExtResource("2_ikr14")]
+rotation = 1.5708
+
+[node name="Wall3" parent="." instance=ExtResource("2_ikr14")]
+position = Vector2(1152, -3.63798e-12)
+rotation = 1.5708
+
+[node name="Wall4" parent="." instance=ExtResource("2_ikr14")]
+position = Vector2(-40, 608)
+scale = Vector2(30, 1)
+
+[node name="PhantomCamera2D" type="Node2D" parent="."]
+position = Vector2(559, 326)
+script = ExtResource("3_t80s2")
+priority_override = false
+priority = 0
+zoom = Vector2(1, 1)
+follow_mode = 0
+frame_preview = true
+pixel_perfect = false
+limit/draw_limits = false
+limit/left = -10000000
+limit/top = -10000000
+limit/right = 10000000
+limit/bottom = 10000000
+limit/limit_node_target = NodePath("")
+limit/smoothed = false
+tween_parameters = null
+tween_on_load = true
+inactive_update_mode = 0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(559, 326)
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+script = ExtResource("3_b764l")

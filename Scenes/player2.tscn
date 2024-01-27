@@ -21,11 +21,9 @@ script = ExtResource("1_xvaa5")
 health_regeneration = 0.001
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_mwaex")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(0.15, 0.15)
 shape = SubResource("RectangleShape2D_qyc38")
 
 [node name="Timer" type="Timer" parent="."]

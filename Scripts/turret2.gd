@@ -1,8 +1,10 @@
-extends Node2D
+class_name Turret2
+extends RigidBody2D 
 
 @onready var ray_cast_2d = $RayCast2D
 @onready var timer = $Timer
 @export var ammo: PackedScene
+@export var ammo_parent: Node
 var   BULLET_SPEED = 100
 
 var player
@@ -31,6 +33,6 @@ func _shoot():
 	var bullet = ammo.instantiate()
 	bullet.position = position
 	bullet.direction = (ray_cast_2d.target_position).normalized()
-	get_tree().current_scene.add_child(bullet)
+	ammo_parent.add_child(bullet)
 	bullet.apply_impulse(Vector2.RIGHT.rotated(rotation) * BULLET_SPEED)
 	

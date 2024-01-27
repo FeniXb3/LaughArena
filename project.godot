@@ -17,11 +17,18 @@ config/icon="res://icon.png"
 
 [autoload]
 
+SignalBus="*res://Scripts/signal_bus.gd"
 MenuTemplateManager="*res://addons/EasyMenus/Nodes/menu_template_manager.tscn"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/input_helper/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 
@@ -57,6 +64,9 @@ move_down={
 
 [layer_names]
 
-2d_physics/layer_1="Objects"
-2d_physics/layer_2="Player"
-2d_physics/layer_3="Bullets"
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Bullets"
+2d_physics/layer_3="Turrets"
+2d_physics/layer_4="Water"
+2d_physics/layer_5="Ground"
+2d_physics/layer_6="Walls"

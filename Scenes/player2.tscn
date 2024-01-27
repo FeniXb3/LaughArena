@@ -4,20 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://ch1mk7q7dy0py" path="res://icon.png" id="2_mwaex"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ga2es"]
+bounce = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyc38"]
 size = Vector2(120, 120)
 
 [node name="player" type="RigidBody2D"]
-collision_layer = 5
-collision_mask = 7
-mass = 10.0
+collision_mask = 46
+mass = 1000.0
 physics_material_override = SubResource("PhysicsMaterial_ga2es")
 gravity_scale = 0.0
 can_sleep = false
 lock_rotation = true
-linear_damp = 0.5
+linear_damp = 5.0
 script = ExtResource("1_xvaa5")
+health_regeneration = 0.001
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.15, 0.15)
@@ -26,3 +27,9 @@ texture = ExtResource("2_mwaex")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.15, 0.15)
 shape = SubResource("RectangleShape2D_qyc38")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

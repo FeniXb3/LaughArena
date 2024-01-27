@@ -12,11 +12,15 @@ radius = 6.66667
 
 [node name="bullets" type="RigidBody2D"]
 scale = Vector2(0.15, 0.15)
+collision_layer = 2
+collision_mask = 33
+mass = 200.0
 physics_material_override = SubResource("PhysicsMaterial_0d3hf")
 gravity_scale = 0.0
 max_contacts_reported = 5
 contact_monitor = true
 script = ExtResource("1_yqi0i")
+damage = 50.0
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(0, -1.19209e-07)

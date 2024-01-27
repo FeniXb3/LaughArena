@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvwplfble2us6"]
+
+[ext_resource type="Script" path="res://Scripts/game_over_text.gd" id="1_bgd2l"]
+
+[node name="Label" type="Label"]
+visible = false
+theme_override_font_sizes/font_size = 100
+text = "Game Over!"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_bgd2l")

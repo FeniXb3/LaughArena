@@ -1,6 +1,7 @@
 extends RigidBody2D
 
 var direction: Vector2 = Vector2.RIGHT
+@export var damage: float = 1.0
 #var speed: float = 300
 
 #const RIGHT = Vector2.RIGHT
@@ -23,8 +24,7 @@ func _on_screen_exited():
 
 func _on_body_entered(body):
 	if body.name == "player":
-		var hitDirection = (body.transform.origin - transform.origin).normalized()
-		body.apply_force(Vector2(hitDirection.x, hitDirection.y) * 500)
+		SignalBus.health_decreased.emit(damage)
 	queue_free()
 
 

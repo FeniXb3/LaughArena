@@ -10,7 +10,7 @@ bounce = 0.5
 size = Vector2(120, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkdj7"]
-size = Vector2(184, 184)
+size = Vector2(200, 200)
 
 [node name="player" type="RigidBody2D"]
 collision_mask = 46
@@ -34,6 +34,11 @@ shape = SubResource("RectangleShape2D_qyc38")
 wait_time = 0.05
 autostart = true
 
+[node name="DeflectionTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
 [node name="Area2D" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 2
@@ -44,3 +49,4 @@ input_pickable = false
 shape = SubResource("RectangleShape2D_mkdj7")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DeflectionTimer" to="." method="_on_deflection_timer_timeout"]

@@ -8,6 +8,8 @@ extends RigidBody2D
 var input_direction = Vector2.ZERO
 @onready var area_2d = %Area2D
 @export var push_force = 1000
+@onready var deflection_timer = $DeflectionTimer
+var can_deflect: bool = true
 
 func _ready():
 	SignalBus.health_decreased.connect(_on_health_decreased)
@@ -32,11 +34,11 @@ func _process(_delta):
 	get_input()
 
 
-	if Input.is_action_just_pressed("Shoot"):
-		_deflection()
-
 func _physics_process(_delta):
 	move_and_collide(input_direction * speed)
+	
+	if can_deflect && Input.is_action_just_pressed("Shoot"):
+		_deflection()
 
 
 func _on_timer_timeout():
@@ -50,3 +52,10 @@ func _deflection():
 		
 		bullet.linear_velocity = Vector2.ZERO
 		bullet.apply_impulse(direction * push_force)
+		
+		can_deflect = false
+
+
+func _on_deflection_timer_timeout():
+	can_deflect = true
+	deflection_timer.start()

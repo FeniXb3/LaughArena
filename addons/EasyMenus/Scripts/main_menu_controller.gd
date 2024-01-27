@@ -24,3 +24,11 @@ func close_options():
 
 func _on_start_game_button_pressed():
 	emit_signal("start_game_pressed")
+
+
+func open_main_menu():
+	#Stops game and shows pause menu
+	get_tree().paused = true
+	show()
+	content.show();
+	start_game_button.grab_focus()

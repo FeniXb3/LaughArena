@@ -8,13 +8,12 @@ bounce = 0.45
 absorbent = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sf7j6"]
-radius = 6.66667
+radius = 32.0
 
 [node name="bullets" type="RigidBody2D"]
-scale = Vector2(0.15, 0.15)
 collision_layer = 2
 collision_mask = 33
-mass = 200.0
+mass = 500.0
 physics_material_override = SubResource("PhysicsMaterial_0d3hf")
 gravity_scale = 0.0
 max_contacts_reported = 5
@@ -28,7 +27,7 @@ scale = Vector2(0.666667, 0.666667)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-4.76837e-07, -4.76837e-07)
-scale = Vector2(0.104167, 0.104167)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_cqhf7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

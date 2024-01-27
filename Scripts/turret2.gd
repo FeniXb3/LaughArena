@@ -5,7 +5,7 @@ extends RigidBody2D
 @onready var timer = $Timer
 @export var ammo: PackedScene
 @export var ammo_parent: Node
-var   BULLET_SPEED = 100
+@export var BULLET_SPEED = 100
 
 var player
 
@@ -28,6 +28,7 @@ func _aim():
 
 func _on_timer_timeout():
 	_shoot()
+	timer.wait_time = randf_range(1, 5)
 	
 func _shoot():
 	var bullet = ammo.instantiate()

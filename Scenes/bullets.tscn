@@ -4,19 +4,20 @@
 [ext_resource type="Texture2D" uid="uid://ch1mk7q7dy0py" path="res://icon.png" id="2_cqhf7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0d3hf"]
-bounce = 0.45
-absorbent = true
+bounce = 0.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sf7j6"]
 radius = 6.66667
 
 [node name="bullets" type="RigidBody2D"]
 scale = Vector2(0.15, 0.15)
+mass = 100.0
 physics_material_override = SubResource("PhysicsMaterial_0d3hf")
 gravity_scale = 0.0
 max_contacts_reported = 5
 contact_monitor = true
 script = ExtResource("1_yqi0i")
+damage = 100.0
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(0, -1.19209e-07)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdthgj4p76fdf"]
+[gd_scene load_steps=9 format=3 uid="uid://bdthgj4p76fdf"]
 
 [ext_resource type="Texture2D" uid="uid://ch1mk7q7dy0py" path="res://icon.png" id="1_wwx5m"]
-[ext_resource type="PackedScene" uid="uid://ceoeg04e6gurv" path="res://water.tscn" id="5_3grh0"]
-[ext_resource type="PackedScene" uid="uid://byh3flua4ky2f" path="res://bullets.tscn" id="5_53jcw"]
-[ext_resource type="PackedScene" uid="uid://c77x8fmpt1ngl" path="res://player2.tscn" id="5_y87s1"]
-[ext_resource type="PackedScene" uid="uid://i4vfjjtivq8g" path="res://turret2.tscn" id="8_ynnnl"]
+[ext_resource type="PackedScene" uid="uid://ceoeg04e6gurv" path="res://Scenes/water.tscn" id="5_3grh0"]
+[ext_resource type="PackedScene" uid="uid://byh3flua4ky2f" path="res://Scenes/bullets.tscn" id="5_53jcw"]
+[ext_resource type="PackedScene" uid="uid://c77x8fmpt1ngl" path="res://Scenes/player2.tscn" id="5_y87s1"]
+[ext_resource type="PackedScene" uid="uid://dh1qfmobw6mjn" path="res://Scenes/health_bar.tscn" id="6_c27gw"]
+[ext_resource type="PackedScene" uid="uid://i4vfjjtivq8g" path="res://Scenes/turret2.tscn" id="8_ynnnl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w11m8"]
 texture = ExtResource("1_wwx5m")
@@ -218,9 +219,11 @@ layer_0/tile_data = PackedInt32Array(720896, 0, 4, 720897, 0, 4, 720898, 0, 4, 7
 [node name="player" parent="." instance=ExtResource("5_y87s1")]
 position = Vector2(168, 104)
 scale = Vector2(0.15, 0.15)
+health_regeneration = 1.0
 
 [node name="bullets" parent="." instance=ExtResource("5_53jcw")]
 position = Vector2(42, 101)
+mass = 10.0
 
 [node name="turret2" parent="." instance=ExtResource("8_ynnnl")]
 position = Vector2(108, 58)
@@ -229,3 +232,5 @@ scale = Vector2(0.3, 0.3)
 [node name="water2" parent="." instance=ExtResource("5_3grh0")]
 position = Vector2(181, 61)
 scale = Vector2(0.09, 0.3)
+
+[node name="HealthBar" parent="." instance=ExtResource("6_c27gw")]

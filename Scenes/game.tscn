@@ -4,11 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://dq6tvhqcy2aps" path="res://addons/EasyMenus/Scenes/main_menu.tscn" id="2_bhx7d"]
 [ext_resource type="PackedScene" uid="uid://bdthgj4p76fdf" path="res://Scenes/bulletHellMap.tscn" id="3_yo86o"]
 [ext_resource type="PackedScene" uid="uid://rw7gdui8lu3n" path="res://addons/EasyMenus/Scenes/pause_menu.tscn" id="4_2bb1p"]
-[ext_resource type="PackedScene" uid="uid://c1fgxxi01q0n1" path="res://addons/EasyMenus/Scenes/game_over_menu.tscn" id="5_c3d56"]
+[ext_resource type="PackedScene" path="res://addons/EasyMenus/Scenes/game_over_menu.tscn" id="5_c3d56"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ue7yx")
-ommit_start_menu = true
 level_scene = ExtResource("3_yo86o")
 
 [node name="LevelParent" type="Node" parent="."]

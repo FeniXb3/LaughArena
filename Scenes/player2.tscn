@@ -10,7 +10,7 @@ bounce = 0.5
 size = Vector2(120, 120)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkdj7"]
-size = Vector2(220, 220)
+size = Vector2(184, 184)
 
 [node name="player" type="RigidBody2D"]
 collision_mask = 46

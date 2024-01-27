@@ -14,11 +14,11 @@ func _input(event):
 
 func _on_main_menu_start_game_pressed():
 	if level:
-		get_tree().root.remove_child(level)
+		level_parent.remove_child(level)
 		level.free()
 	
 	level = level_scene.instantiate()
-	get_tree().root.add_child(level)
+	level_parent.add_child(level)
 	print("start")
 	main_menu.visible = false
 	

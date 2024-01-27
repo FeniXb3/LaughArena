@@ -3,9 +3,14 @@
 [ext_resource type="Script" path="res://Scripts/health_bar.gd" id="1_v311a"]
 
 [node name="HealthBar" type="ProgressBar"]
-offset_right = 273.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -136.5
+offset_right = 136.5
 offset_bottom = 27.0
+grow_horizontal = 2
 max_value = 1000.0
-value = 100.0
+value = 1000.0
 show_percentage = false
 script = ExtResource("1_v311a")

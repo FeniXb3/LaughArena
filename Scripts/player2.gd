@@ -16,6 +16,8 @@ func get_input():
 
 func _on_health_decreased(value):
 	mass = clamp(mass - value, min_mass, max_mass)
+	if mass <= 0.01:
+		SignalBus.game_over.emit()
 			
 func _on_health_increased(regen):
 	mass = clamp(mass + regen, min_mass, max_mass)

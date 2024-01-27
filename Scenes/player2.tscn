@@ -11,7 +11,7 @@ size = Vector2(120, 120)
 
 [node name="player" type="RigidBody2D"]
 collision_mask = 46
-mass = 100.0
+mass = 1000.0
 physics_material_override = SubResource("PhysicsMaterial_ga2es")
 gravity_scale = 0.0
 can_sleep = false

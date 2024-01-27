@@ -3,16 +3,15 @@
 [ext_resource type="Script" path="res://bullets.gd" id="1_2o8ih"]
 [ext_resource type="Texture2D" uid="uid://ch1mk7q7dy0py" path="res://icon.png" id="2_cqhf7"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_01way"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_rix7y"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_15q7d"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_sf7j6"]
 radius = 6.66667
 
 [node name="bullets" type="RigidBody2D"]
 scale = Vector2(0.15, 0.15)
-physics_material_override = SubResource("PhysicsMaterial_01way")
-max_contacts_reported = 5
-contact_monitor = true
+physics_material_override = SubResource("PhysicsMaterial_rix7y")
+gravity_scale = 0.0
 script = ExtResource("1_2o8ih")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
@@ -25,7 +24,7 @@ scale = Vector2(0.104167, 0.104167)
 texture = ExtResource("2_cqhf7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_15q7d")
+shape = SubResource("CircleShape2D_sf7j6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]

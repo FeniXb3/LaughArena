@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://ch1mk7q7dy0py" path="res://icon.png" id="2_mwaex"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ga2es"]
-bounce = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyc38"]
 size = Vector2(120, 120)
@@ -17,8 +16,8 @@ physics_material_override = SubResource("PhysicsMaterial_ga2es")
 gravity_scale = 0.0
 can_sleep = false
 lock_rotation = true
+linear_damp = 5.0
 script = ExtResource("1_xvaa5")
-speed = 1.5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.15, 0.15)

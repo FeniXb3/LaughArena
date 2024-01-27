@@ -11,7 +11,7 @@ func _on_timer_timeout():
 	while not spawned and attempts < max_attempts:
 		var x = randf_range(30, 330)
 		var y = randf_range(30, 600)
-		if (y>0):
+		if (1):
 			var enemy = enemy_scene.instantiate()
 			enemy.position = Vector2(y, x)
 			get_tree().current_scene.add_child(enemy)

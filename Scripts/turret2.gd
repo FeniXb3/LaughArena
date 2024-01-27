@@ -5,7 +5,7 @@ extends RigidBody2D
 @onready var timer = $Timer
 @export var ammo: PackedScene
 @export var ammo_parent: Node
-var   BULLET_SPEED = 100
+@export var BULLET_SPEED = 100
 
 var player
 

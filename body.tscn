@@ -47,7 +47,7 @@ node_b = NodePath("../2")
 position = Vector2(546.95, -39.928)
 mass = 2.0
 script = ExtResource("1_ku6bq")
-impulse_vector = Vector2(300, -1700)
+impulse_vector = Vector2(500, -1700)
 
 [node name="ColorRect" type="ColorRect" parent="LeftLeg/LeftFoot"]
 offset_right = 40.0
@@ -95,11 +95,10 @@ node_b = NodePath("../2")
 [node name="RightFoot" type="RigidBody2D" parent="RightLeg"]
 position = Vector2(546.502, -0.333137)
 rotation = -0.00653154
-scale = Vector2(1, 1)
 mass = 2.0
 script = ExtResource("1_ku6bq")
 action_key = "move_right"
-impulse_vector = Vector2(-300, -1700)
+impulse_vector = Vector2(-500, -1700)
 
 [node name="ColorRect" type="ColorRect" parent="RightLeg/RightFoot"]
 offset_right = 40.0

@@ -3,14 +3,14 @@ extends Node2D
 @onready var ray_cast_2d = $RayCast2D
 @onready var timer = $Timer
 @export var ammo: PackedScene
-var   BULLET_SPEED = 300
+var   BULLET_SPEED = 100
 
 var player
 
 func _ready():
 	player = get_parent().find_child("player")
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	_aim()
 	#_check_player_collision()
 	

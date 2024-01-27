@@ -52,6 +52,7 @@ func _deflection():
 		
 		bullet.linear_velocity = Vector2.ZERO
 		bullet.apply_impulse(direction * push_force)
+		bullet.collision_mask = bullet.collision_mask ^ 1 | 4
 		
 		can_deflect = false
 

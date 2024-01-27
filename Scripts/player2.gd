@@ -10,6 +10,10 @@ var input_direction = Vector2.ZERO
 @export var push_force = 1000
 @onready var deflection_timer = $DeflectionTimer
 var can_deflect: bool = true
+@onready var score_timer = $ScoreTimer
+@export var score = 0
+@export var score_added = 1
+
 
 func _ready():
 	SignalBus.health_decreased.connect(_on_health_decreased)
@@ -60,3 +64,10 @@ func _deflection():
 func _on_deflection_timer_timeout():
 	can_deflect = true
 	deflection_timer.start()
+
+
+
+func _on_score_timer_timeout():
+	score += score_added
+	SignalBus.points_earned.emit(score_added)
+	

@@ -302,18 +302,19 @@ script = ExtResource("8_poi7o")
 
 [node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 1400
 alignment = 1
-
-[node name="Score" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Score: 0"
-script = ExtResource("8_5n763")
 
 [node name="HealthBar" parent="CanvasLayer/MarginContainer/VBoxContainer" instance=ExtResource("6_c27gw")]
 custom_minimum_size = Vector2(270, 50)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Score" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 30
+text = "Score: 0"
+script = ExtResource("8_5n763")

@@ -28,6 +28,7 @@ func _aim():
 
 func _on_timer_timeout():
 	_shoot()
+	timer.wait_time = randf_range(1, 5)
 	
 func _shoot():
 	var bullet = ammo.instantiate()

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b65507vmrvunb"
-path="res://.godot/imported/PERERABOTKA-idle-cycle-down.png-203e6b81738e2ed48fb54d0bd98573f1.ctex"
+uid="uid://b5vg8gqrwnudc"
+path="res://.godot/imported/PERERABOTKA-attack-up.png-c07915205f1942c55f0b0af701f2c235.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/idle/PERERABOTKA-idle-cycle-down.png"
-dest_files=["res://.godot/imported/PERERABOTKA-idle-cycle-down.png-203e6b81738e2ed48fb54d0bd98573f1.ctex"]
+source_file="res://Player/with sword/PERERABOTKA-attack-up.png"
+dest_files=["res://.godot/imported/PERERABOTKA-attack-up.png-c07915205f1942c55f0b0af701f2c235.ctex"]
 
 [params]
 

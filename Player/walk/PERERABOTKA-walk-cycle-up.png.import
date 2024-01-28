@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b65507vmrvunb"
-path="res://.godot/imported/PERERABOTKA-idle-cycle-down.png-203e6b81738e2ed48fb54d0bd98573f1.ctex"
+uid="uid://cyipccicwul3u"
+path="res://.godot/imported/PERERABOTKA-walk-cycle-up.png-84b46322d087b7cd1c8b431a0af13023.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/idle/PERERABOTKA-idle-cycle-down.png"
-dest_files=["res://.godot/imported/PERERABOTKA-idle-cycle-down.png-203e6b81738e2ed48fb54d0bd98573f1.ctex"]
+source_file="res://Player/walk/PERERABOTKA-walk-cycle-up.png"
+dest_files=["res://.godot/imported/PERERABOTKA-walk-cycle-up.png-84b46322d087b7cd1c8b431a0af13023.ctex"]
 
 [params]
 

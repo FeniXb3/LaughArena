@@ -7,12 +7,14 @@ extends RigidBody2D
 @export var min_mass = 0.01
 var input_direction = Vector2.ZERO
 @onready var area_2d = %Area2D
-@export var push_force = 1000
+@export var push_force = 5000
 @onready var deflection_timer = $DeflectionTimer
 var can_deflect: bool = true
 @onready var score_timer = $ScoreTimer
 @export var score = 0
 @export var score_added = 1
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+var animation_locked = false
 
 
 func _ready():
@@ -22,6 +24,7 @@ func _ready():
 
 func get_input():
 	input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	
 
 
 func _on_health_decreased(value):
@@ -36,13 +39,17 @@ func _on_health_increased(regen):
 
 func _process(_delta):
 	get_input()
-
+	update_animation()
 
 func _physics_process(_delta):
 	move_and_collide(input_direction * speed)
 	
 	if can_deflect && Input.is_action_just_pressed("Shoot"):
+		animation_locked = true
 		_deflection()
+		animated_sprite.play("attack")
+		await animated_sprite.animation_finished
+		animation_locked = false
 
 
 func _on_timer_timeout():
@@ -59,15 +66,30 @@ func _deflection():
 		bullet.collision_mask = bullet.collision_mask ^ 1 | 4
 		
 		can_deflect = false
+	deflection_timer.start()
+
 
 
 func _on_deflection_timer_timeout():
 	can_deflect = true
-	deflection_timer.start()
-
+	
 
 
 func _on_score_timer_timeout():
 	score += score_added
 	SignalBus.points_earned.emit(score_added)
 	
+func update_animation():
+	if animation_locked == false:
+		if input_direction.y > 0:
+			animated_sprite.play("walk down")
+		elif input_direction.y < 0:
+			animated_sprite.play("walk up")
+		elif input_direction.x > 0:
+			animated_sprite.flip_h = false
+			animated_sprite.play("walk side")
+		elif input_direction.x < 0:
+			animated_sprite.flip_h = true
+			animated_sprite.play("walk side")
+		else:
+			animated_sprite.play("idle")

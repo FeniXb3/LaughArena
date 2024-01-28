@@ -24,6 +24,7 @@ var animation_locked = false
 func _ready():
 	SignalBus.health_decreased.connect(_on_health_decreased)
 	SignalBus.health_increased.connect(_on_health_increased)
+	SignalBus.deflection_enabled.connect(_on_deflection_enabled)
 
 
 func get_input():
@@ -78,11 +79,12 @@ func _deflection():
 		SignalBus.ActiveParticle.emit()
 		bounce_sound.play()
 		can_deflect = false
+		SignalBus.deflection_performed.emit()
 	deflection_timer.start()
 
 
 
-func _on_deflection_timer_timeout():
+func _on_deflection_enabled():
 	can_deflect = true
 	
 

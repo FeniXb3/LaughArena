@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/bullets.gd" id="1_yqi0i"]
 [ext_resource type="Texture2D" uid="uid://cr64bvw8yhm7s" path="res://Scenes/Chocolatecake.png" id="2_hm7ba"]
-[ext_resource type="PackedScene" uid="uid://ckwwkuyuq0hgj" path="res://efekt odbicia.tscn" id="3_oceas"]
+[ext_resource type="PackedScene" path="res://efekt odbicia.tscn" id="3_oceas"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0d3hf"]
 bounce = 0.45

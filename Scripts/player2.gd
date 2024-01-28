@@ -78,6 +78,9 @@ func _deflection():
 		bullet.collision_mask = bullet.collision_mask ^ 1 | 4
 		SignalBus.ActiveParticle.emit()
 		bounce_sound.play()
+		score_added = 2
+		score += score_added
+		SignalBus.points_earned.emit(score_added)
 		can_deflect = false
 		SignalBus.deflection_performed.emit()
 	deflection_timer.start()
@@ -90,6 +93,7 @@ func _on_deflection_enabled():
 
 
 func _on_score_timer_timeout():
+	score_added = 1
 	score += score_added
 	SignalBus.points_earned.emit(score_added)
 	

@@ -1,15 +1,39 @@
-[gd_scene load_steps=2 format=3 uid="uid://dh1qfmobw6mjn"]
+[gd_scene load_steps=5 format=3 uid="uid://dh1qfmobw6mjn"]
 
 [ext_resource type="Script" path="res://Scripts/health_bar.gd" id="1_v311a"]
 
+[sub_resource type="Theme" id="Theme_6s6cr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7aj4i"]
+bg_color = Color(0.00392157, 0.00392157, 0.00392157, 0.290196)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ajfaj"]
+bg_color = Color(0.580392, 0, 0.25098, 1)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0.909804, 0.611765, 0.498039, 1)
+border_blend = true
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 2
+shadow_size = 1
+
 [node name="HealthBar" type="ProgressBar"]
+custom_minimum_size = Vector2(100, 5)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -136.5
-offset_right = 136.5
-offset_bottom = 27.0
+offset_left = -960.0
+offset_right = -860.0
+offset_bottom = 12.0
 grow_horizontal = 2
+scale = Vector2(1, 0.5)
+theme = SubResource("Theme_6s6cr")
+theme_override_styles/background = SubResource("StyleBoxFlat_7aj4i")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ajfaj")
 max_value = 1000.0
 value = 1000.0
 show_percentage = false

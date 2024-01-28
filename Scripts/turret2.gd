@@ -29,4 +29,4 @@ func _shoot():
 	bullet.direction = (ray_cast_2d.target_position).normalized()
 	ammo_parent.add_child(bullet)
 	bullet.apply_impulse(Vector2.RIGHT.rotated(rotation) * BULLET_SPEED)
-	bullet.angular_velocity = 30
+	bullet.angular_velocity = 100

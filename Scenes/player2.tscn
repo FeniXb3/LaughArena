@@ -297,7 +297,6 @@ bus = &"SFX"
 
 [node name="Hurt" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_kng1o")
-volume_db = -10.0
 pitch_scale = 1.52
 autoplay = true
 max_polyphony = 4
@@ -305,7 +304,6 @@ bus = &"SFX"
 
 [node name="Bounce" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_0niot")
-volume_db = -2.0
 pitch_scale = 2.71
 bus = &"SFX"
 

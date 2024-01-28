@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bdthgj4p76fdf" path="res://Scenes/bulletHellMap.tscn" id="3_yo86o"]
 [ext_resource type="PackedScene" uid="uid://rw7gdui8lu3n" path="res://addons/EasyMenus/Scenes/pause_menu.tscn" id="4_2bb1p"]
 [ext_resource type="PackedScene" uid="uid://c1fgxxi01q0n1" path="res://addons/EasyMenus/Scenes/game_over_menu.tscn" id="5_c3d56"]
-[ext_resource type="AudioStream" uid="uid://blqw73ei08hfl" path="res://Sounds/MUZYKA.mp3" id="6_4x87w"]
+[ext_resource type="AudioStream" uid="uid://cxokmrphkqnww" path="res://Sounds/Bar Brawl.mp3" id="6_40gdq"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ue7yx")
@@ -33,9 +33,8 @@ visible = false
 [node name="TileMap" type="TileMap" parent="."]
 format = 2
 
-[node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_4x87w")
-volume_db = -15.0
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_40gdq")
 bus = &"Music"
 
 [connection signal="start_game_pressed" from="MenuLayer/MainMenu" to="." method="_on_main_menu_start_game_pressed"]

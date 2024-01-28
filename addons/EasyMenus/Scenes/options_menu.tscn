@@ -1,10 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://qlskttl1wjr7"]
+[gd_scene load_steps=9 format=3 uid="uid://qlskttl1wjr7"]
 
 [ext_resource type="Script" path="res://addons/EasyMenus/Scripts/options_menu_controller.gd" id="1_h6k46"]
 [ext_resource type="Script" path="res://addons/EasyMenus/Scripts/follow_focus_center.gd" id="2_l3n3h"]
 [ext_resource type="PackedScene" uid="uid://dyfwp0vhgfjd7" path="res://addons/EasyMenus/Nodes/slider_w_labels.tscn" id="3_xghjq"]
 [ext_resource type="Script" path="res://addons/EasyMenus/Scripts/option_button_input_propagator.gd" id="4_02jwa"]
 [ext_resource type="PackedScene" uid="uid://cqniig2ks0xs2" path="res://addons/EasyMenus/Nodes/gamepad_closable.tscn" id="5_k4nlh"]
+
+[sub_resource type="Theme" id="Theme_vsiix"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nnnxs"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x77mt"]
 
@@ -65,6 +69,8 @@ title = "SFX Volume"
 text = "SFX Volume"
 
 [node name="HSlider" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SFXVolumeSlider" index="1"]
+theme = SubResource("Theme_vsiix")
+theme_override_styles/slider = SubResource("StyleBoxTexture_nnnxs")
 max_value = 1.0
 step = 0.1
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c77x8fmpt1ngl"]
+[gd_scene load_steps=44 format=3 uid="uid://c77x8fmpt1ngl"]
 
 [ext_resource type="Script" path="res://Scripts/player2.gd" id="1_xvaa5"]
 [ext_resource type="Texture2D" uid="uid://b65507vmrvunb" path="res://Player/idle/PERERABOTKA-idle-cycle-down.png" id="2_4ucy3"]
@@ -228,6 +228,24 @@ size = Vector2(20, 23)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkdj7"]
 size = Vector2(96, 96)
 
+[sub_resource type="Theme" id="Theme_a8vn5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwihc"]
+bg_color = Color(0.027451, 0.027451, 0.027451, 0.584314)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6rdxx"]
+bg_color = Color(0.635294, 0.635294, 0.635294, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.309804, 0.309804, 0.309804, 1)
+border_blend = true
+corner_radius_top_left = 11
+corner_radius_top_right = 11
+corner_radius_bottom_right = 11
+corner_radius_bottom_left = 11
+
 [node name="player" type="RigidBody2D"]
 collision_mask = 47
 mass = 1000.0
@@ -283,6 +301,9 @@ offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(0.1, 0.1)
+theme = SubResource("Theme_a8vn5")
+theme_override_styles/background = SubResource("StyleBoxFlat_rwihc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_6rdxx")
 max_value = 3.0
 step = 0.05
 value = 3.0

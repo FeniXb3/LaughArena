@@ -226,7 +226,7 @@ animations = [{
 size = Vector2(20, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkdj7"]
-size = Vector2(96, 96)
+size = Vector2(112, 96)
 
 [sub_resource type="Theme" id="Theme_a8vn5"]
 
@@ -264,7 +264,7 @@ autostart = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1.64286, 1.64286)
 sprite_frames = SubResource("SpriteFrames_q2634")
-animation = &"Emision"
+animation = &"attack"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

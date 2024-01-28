@@ -1,12 +1,17 @@
-[gd_scene load_steps=22 format=3 uid="uid://dq6tvhqcy2aps"]
+[gd_scene load_steps=28 format=3 uid="uid://dq6tvhqcy2aps"]
 
 [ext_resource type="Script" path="res://addons/EasyMenus/Scripts/main_menu_controller.gd" id="1_lbw7r"]
 [ext_resource type="Texture2D" uid="uid://bll1721yyl5ma" path="res://Scenes/START2png.png" id="2_5mjjq"]
 [ext_resource type="PackedScene" uid="uid://qlskttl1wjr7" path="res://addons/EasyMenus/Scenes/options_menu.tscn" id="2_pwqpr"]
 [ext_resource type="Texture2D" uid="uid://dsgwo8sjyubx8" path="res://Scenes/START2Hover.png" id="3_aived"]
 [ext_resource type="Texture2D" uid="uid://biijwh0oe274y" path="res://UI/OPTIONS.png" id="3_hqj4w"]
-[ext_resource type="Texture2D" uid="uid://kbh7nl1wipoq" path="res://Scenes/START3Press.png" id="4_4feai"]
-[ext_resource type="Texture2D" uid="uid://d27hg40y2g44c" path="res://UI/QUIT.png" id="4_nh3y1"]
+[ext_resource type="Texture2D" uid="uid://c8pfyvf4cmh24" path="res://Scenes/STARTPress.png" id="4_x0nda"]
+[ext_resource type="Texture2D" uid="uid://bv4p6g4h1ye5n" path="res://NEW-UI/OPTIONS1.png" id="5_jswxy"]
+[ext_resource type="Texture2D" uid="uid://bixib385jnomr" path="res://NEW-UI/OptionsHov.png" id="6_5jwg4"]
+[ext_resource type="Texture2D" uid="uid://f21m5djrxvil" path="res://OptionsPress.png" id="7_h152y"]
+[ext_resource type="Texture2D" uid="uid://cmiyh36brebxi" path="res://NEW-UI/QUIT1.png" id="9_jgy75"]
+[ext_resource type="Texture2D" uid="uid://cjmtajaly4pxn" path="res://NEW-UI/QuitHove.png" id="10_e7ory"]
+[ext_resource type="Texture2D" uid="uid://she5dddoyeod" path="res://NEW-UI/QuitPress (1).png" id="11_87ads"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uyome"]
 texture = ExtResource("2_5mjjq")
@@ -15,40 +20,39 @@ texture = ExtResource("2_5mjjq")
 texture = ExtResource("3_aived")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nffm8"]
-texture = ExtResource("4_4feai")
+texture = ExtResource("4_x0nda")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_on2e3"]
 texture = ExtResource("2_5mjjq")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mc26x"]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_titkn"]
-texture = ExtResource("3_hqj4w")
+texture = ExtResource("5_jswxy")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gwha0"]
-texture = ExtResource("3_hqj4w")
+texture = ExtResource("6_5jwg4")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pqme1"]
-texture = ExtResource("3_hqj4w")
+texture = ExtResource("7_h152y")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3fm04"]
 texture = ExtResource("3_hqj4w")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r6dhh"]
-texture = ExtResource("3_hqj4w")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wfhcd"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6wccq"]
-texture = ExtResource("4_nh3y1")
+texture = ExtResource("9_jgy75")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xlkix"]
-texture = ExtResource("4_nh3y1")
+texture = ExtResource("10_e7ory")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ag4cw"]
-texture = ExtResource("4_nh3y1")
+texture = ExtResource("11_87ads")
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k8rn5"]
-texture = ExtResource("4_nh3y1")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ls7fh"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0cavp"]
-texture = ExtResource("4_nh3y1")
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xnydk"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -97,6 +101,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_uyome")
 theme_override_styles/hover = SubResource("StyleBoxTexture_g3l5l")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_nffm8")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_on2e3")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mc26x")
 
 [node name="OptionsButton" type="Button" parent="Content"]
 custom_minimum_size = Vector2(600, 200)
@@ -111,7 +116,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_titkn")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gwha0")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_pqme1")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_3fm04")
-theme_override_styles/focus = SubResource("StyleBoxTexture_r6dhh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_wfhcd")
 
 [node name="QuitButton" type="Button" parent="Content"]
 custom_minimum_size = Vector2(600, 200)
@@ -125,8 +130,8 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxTexture_6wccq")
 theme_override_styles/hover = SubResource("StyleBoxTexture_xlkix")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ag4cw")
-theme_override_styles/disabled = SubResource("StyleBoxTexture_k8rn5")
-theme_override_styles/focus = SubResource("StyleBoxTexture_0cavp")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ls7fh")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xnydk")
 
 [node name="OptionsMenu" parent="." instance=ExtResource("2_pwqpr")]
 unique_name_in_owner = true

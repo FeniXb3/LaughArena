@@ -11,8 +11,17 @@ extends Node2D
 @onready var level_parent = $LevelParent
 var level : Node
 
+@onready var king_laugh_1 = $KingLaugh1
+@onready var king_laugh_2 = $KingLaugh2
+@onready var king_laugh_3 = $KingLaugh3
+@onready var king_laugh_4 = $KingLaugh4
+@onready var king_laugh_5 = $KingLaugh5
+var sounds : Array
+
 func _ready():
 	SignalBus.game_over.connect(_on_game_over)
+	SignalBus.player_was_hit.connect(_on_player_was_hit)
+	sounds = [king_laugh_1, king_laugh_2, king_laugh_3, king_laugh_4, king_laugh_5]
 	
 	if ommit_start_menu:
 		_on_main_menu_start_game_pressed()
@@ -48,3 +57,15 @@ func clear_level():
 	if level:
 		level_parent.remove_child(level)
 		level.free()
+
+func _on_player_was_hit():
+	_play_random_sound()
+
+func _play_random_sound():
+	
+	var sound_index = randi() % 5 
+	
+	var sound = sounds[sound_index]
+	
+	print(sound.name)
+	sound.play()

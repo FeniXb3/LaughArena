@@ -17,6 +17,7 @@ func _on_body_entered(body):
 	
 	if body.collision_layer == 1:
 		SignalBus.health_decreased.emit(damage)
+		SignalBus.player_was_hit.emit()
 		var direction = (body.transform.origin - transform.origin)
 		body.apply_impulse(direction * push_force)
 	elif body.collision_layer == 4:

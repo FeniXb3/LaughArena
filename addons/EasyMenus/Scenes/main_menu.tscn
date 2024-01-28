@@ -25,7 +25,8 @@ texture = ExtResource("4_x0nda")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_on2e3"]
 texture = ExtResource("2_5mjjq")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mc26x"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qfil1"]
+texture = ExtResource("3_aived")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_titkn"]
 texture = ExtResource("5_jswxy")
@@ -39,7 +40,8 @@ texture = ExtResource("7_h152y")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3fm04"]
 texture = ExtResource("3_hqj4w")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wfhcd"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_prdsn"]
+texture = ExtResource("6_5jwg4")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6wccq"]
 texture = ExtResource("9_jgy75")
@@ -52,7 +54,8 @@ texture = ExtResource("11_87ads")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ls7fh"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xnydk"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_25nip"]
+texture = ExtResource("10_e7ory")
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -69,17 +72,22 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -228.0
-offset_top = 66.0
-offset_right = 372.0
-offset_bottom = 809.0
+offset_left = -249.0
+offset_top = 111.0
+offset_right = 351.0
+offset_bottom = 894.0
 grow_horizontal = 2
 theme_override_constants/separation = 15
 metadata/_edit_group_ = true
 
 [node name="Title" type="Label" parent="Content"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 45
+theme_override_colors/font_color = Color(0.941176, 0.6, 0.505882, 1)
+theme_override_colors/font_shadow_color = Color(0.909804, 0.603922, 0.494118, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_constants/shadow_outline_size = 2
+theme_override_font_sizes/font_size = 75
 text = "Laugh Arena"
 horizontal_alignment = 1
 
@@ -101,7 +109,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_uyome")
 theme_override_styles/hover = SubResource("StyleBoxTexture_g3l5l")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_nffm8")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_on2e3")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_mc26x")
+theme_override_styles/focus = SubResource("StyleBoxTexture_qfil1")
 
 [node name="OptionsButton" type="Button" parent="Content"]
 custom_minimum_size = Vector2(600, 200)
@@ -116,7 +124,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_titkn")
 theme_override_styles/hover = SubResource("StyleBoxTexture_gwha0")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_pqme1")
 theme_override_styles/disabled = SubResource("StyleBoxTexture_3fm04")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_wfhcd")
+theme_override_styles/focus = SubResource("StyleBoxTexture_prdsn")
 
 [node name="QuitButton" type="Button" parent="Content"]
 custom_minimum_size = Vector2(600, 200)
@@ -131,7 +139,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_6wccq")
 theme_override_styles/hover = SubResource("StyleBoxTexture_xlkix")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_ag4cw")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_ls7fh")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_xnydk")
+theme_override_styles/focus = SubResource("StyleBoxTexture_25nip")
 
 [node name="OptionsMenu" parent="." instance=ExtResource("2_pwqpr")]
 unique_name_in_owner = true

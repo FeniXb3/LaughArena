@@ -1,7 +1,41 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1fgxxi01q0n1"]
+[gd_scene load_steps=19 format=3 uid="uid://c1fgxxi01q0n1"]
 
 [ext_resource type="Script" path="res://addons/EasyMenus/Scripts/game_over_menu_controller.gd" id="1_3l5aj"]
+[ext_resource type="Texture2D" uid="uid://bv4p6g4h1ye5n" path="res://NEW-UI/OPTIONS1.png" id="2_537t2"]
 [ext_resource type="PackedScene" uid="uid://qlskttl1wjr7" path="res://addons/EasyMenus/Scenes/options_menu.tscn" id="2_p5nu7"]
+[ext_resource type="Texture2D" uid="uid://bixib385jnomr" path="res://NEW-UI/OptionsHov.png" id="3_nieph"]
+[ext_resource type="Texture2D" uid="uid://f21m5djrxvil" path="res://OptionsPress.png" id="4_32dmm"]
+[ext_resource type="Texture2D" uid="uid://cmiyh36brebxi" path="res://NEW-UI/QUIT1.png" id="5_3bcya"]
+[ext_resource type="Texture2D" uid="uid://cjmtajaly4pxn" path="res://NEW-UI/QuitHove.png" id="6_3ppi3"]
+[ext_resource type="Texture2D" uid="uid://she5dddoyeod" path="res://NEW-UI/QuitPress (1).png" id="7_ry55a"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ldhbr"]
+texture = ExtResource("2_537t2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o4p36"]
+texture = ExtResource("3_nieph")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6a7rs"]
+texture = ExtResource("4_32dmm")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yw6ak"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_by6i2"]
+texture = ExtResource("3_nieph")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ct75p"]
+texture = ExtResource("5_3bcya")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_asqiq"]
+texture = ExtResource("6_3ppi3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k26q4"]
+texture = ExtResource("7_ry55a")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g5cq6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5ffsn"]
+texture = ExtResource("6_3ppi3")
 
 [node name="GameOverMenu" type="Control"]
 process_mode = 3
@@ -50,18 +84,26 @@ theme_override_font_sizes/font_size = 30
 text = "Restart game"
 
 [node name="OptionsButton" type="Button" parent="Content"]
-custom_minimum_size = Vector2(350, 0)
+custom_minimum_size = Vector2(600, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
-text = "Options"
+theme_override_styles/normal = SubResource("StyleBoxTexture_ldhbr")
+theme_override_styles/hover = SubResource("StyleBoxTexture_o4p36")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6a7rs")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_yw6ak")
+theme_override_styles/focus = SubResource("StyleBoxTexture_by6i2")
 
 [node name="QuitButton" type="Button" parent="Content"]
-custom_minimum_size = Vector2(350, 0)
+custom_minimum_size = Vector2(600, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
-text = "Quit"
+theme_override_styles/normal = SubResource("StyleBoxTexture_ct75p")
+theme_override_styles/hover = SubResource("StyleBoxTexture_asqiq")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_k26q4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_g5cq6")
+theme_override_styles/focus = SubResource("StyleBoxTexture_5ffsn")
 
 [node name="OptionsMenu" parent="." instance=ExtResource("2_p5nu7")]
 unique_name_in_owner = true

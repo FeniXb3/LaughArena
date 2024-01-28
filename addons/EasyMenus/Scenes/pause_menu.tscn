@@ -20,7 +20,8 @@ texture = ExtResource("4_1oj5s")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q1mty"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ygb42"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6aohq"]
+texture = ExtResource("3_7uu3x")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cmn0n"]
 texture = ExtResource("5_k6uyw")
@@ -33,7 +34,8 @@ texture = ExtResource("7_2y8sv")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sl7yk"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6hp1s"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kkmwb"]
+texture = ExtResource("6_84gi5")
 
 [node name="PauseMenu" type="Control"]
 process_mode = 3
@@ -90,14 +92,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_g2o2i")
 theme_override_styles/hover = SubResource("StyleBoxTexture_iquqb")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_0cwxh")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_q1mty")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ygb42")
-
-[node name="BackToMenuButton" type="Button" parent="Content"]
-custom_minimum_size = Vector2(350, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 30
-text = "Back to Main Menu"
+theme_override_styles/focus = SubResource("StyleBoxTexture_6aohq")
 
 [node name="QuitButton" type="Button" parent="Content"]
 custom_minimum_size = Vector2(600, 200)
@@ -108,7 +103,7 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_cmn0n")
 theme_override_styles/hover = SubResource("StyleBoxTexture_mqjky")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_40xn7")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_sl7yk")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_6hp1s")
+theme_override_styles/focus = SubResource("StyleBoxTexture_kkmwb")
 
 [node name="OptionsMenu" parent="." instance=ExtResource("2_ejh0f")]
 unique_name_in_owner = true
@@ -117,6 +112,5 @@ layout_mode = 1
 
 [connection signal="pressed" from="Content/ResumeGameButton" to="." method="_on_resume_game_button_pressed"]
 [connection signal="pressed" from="Content/OptionsButton" to="." method="_on_options_button_pressed"]
-[connection signal="pressed" from="Content/BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
 [connection signal="pressed" from="Content/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="close" from="OptionsMenu" to="." method="_on_options_menu_close"]

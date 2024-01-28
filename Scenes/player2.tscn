@@ -1,7 +1,7 @@
 [gd_scene load_steps=41 format=3 uid="uid://c77x8fmpt1ngl"]
 
 [ext_resource type="Script" path="res://Scripts/player2.gd" id="1_xvaa5"]
-[ext_resource type="Texture2D" uid="uid://bhqwr1lyppgy7" path="res://Player/idle/PERERABOTKA-idle-cycle-down.png" id="2_4ucy3"]
+[ext_resource type="Texture2D" uid="uid://b65507vmrvunb" path="res://Player/idle/PERERABOTKA-idle-cycle-down.png" id="2_4ucy3"]
 [ext_resource type="Texture2D" uid="uid://dd5stx14jcevl" path="res://Player/with sword/PERERABOTKA-attack-down.png" id="2_r5uam"]
 [ext_resource type="Texture2D" uid="uid://270odmusy6p6" path="res://Player/idle/PERERABOTKA-idle-cycle-right.png" id="3_kn8tl"]
 [ext_resource type="Texture2D" uid="uid://bw6lxlylgjwt" path="res://Player/walk/PERERABOTKA-walk-cycle-down.png" id="4_c3kmu"]
@@ -291,19 +291,19 @@ script = ExtResource("9_xlw2x")
 
 [node name="Steps" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_07m1m")
-volume_db = -28.944
+volume_db = -15.0
 pitch_scale = 3.5
 
 [node name="Hurt" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_kng1o")
-volume_db = -25.0
+volume_db = -10.0
 pitch_scale = 1.52
 autoplay = true
 max_polyphony = 4
 
 [node name="Bounce" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_0niot")
-volume_db = -17.0
+volume_db = -2.0
 pitch_scale = 2.71
 
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

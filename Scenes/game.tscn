@@ -35,7 +35,7 @@ format = 2
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_4x87w")
-volume_db = -30.0
+volume_db = -15.0
 
 [connection signal="start_game_pressed" from="MenuLayer/MainMenu" to="." method="_on_main_menu_start_game_pressed"]
 [connection signal="start_game_pressed" from="MenuLayer/GameOverMenu" to="." method="_on_main_menu_start_game_pressed"]

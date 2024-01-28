@@ -13,10 +13,13 @@ var level : Node
 
 func _ready():
 	SignalBus.game_over.connect(_on_game_over)
-	music_sound.play()
 	
 	if ommit_start_menu:
 		_on_main_menu_start_game_pressed()
+	else:
+		music_sound.play()
+		music_sound.pitch_scale = 0.5
+		
 	
 func _input(event):
 	if (event.is_action_pressed("ui_cancel") or event.is_action_pressed("pause")) and not pause_menu.visible:
@@ -28,9 +31,12 @@ func _on_main_menu_start_game_pressed():
 	level = level_scene.instantiate()
 	level_parent.add_child(level)
 	print("start")
+	music_sound.play()
+	music_sound.pitch_scale = 1
+	
 	main_menu.hide()
 	#music_sound.volume_db = -25
-	music_sound.pitch_scale = 2
+	#music_sound.pitch_scale = 2
 
 func _on_game_over():
 	#main_menu.open_main_menu()

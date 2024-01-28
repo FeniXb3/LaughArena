@@ -81,7 +81,7 @@ z_as_relative = false
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_s6kkl")
 autoplay = "default"
-frame_progress = 0.951217
+frame_progress = 0.873383
 
 [node name="Eyes" type="Node2D" parent="Sprite2D"]
 unique_name_in_owner = true

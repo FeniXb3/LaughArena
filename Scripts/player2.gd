@@ -16,7 +16,9 @@ var can_deflect: bool = true
 @export var score_added = 1
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 var animation_locked = false
-
+@onready var steps_sound = $Steps
+@onready var bounce_sound = $Bounce
+@onready var hurt_sound = $Hurt
 
 
 func _ready():
@@ -28,10 +30,12 @@ func _ready():
 func get_input():
 	input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
+	
 
 
 func _on_health_decreased(value):
 	mass = clamp(mass - value, min_mass, max_mass)
+	hurt_sound.play()
 	if mass <= 0.01:
 		SignalBus.game_over.emit()
 	animated_sprite.modulate = Color(2.04,0.2,0.7)
@@ -73,6 +77,7 @@ func _deflection():
 		bullet.EmitParticle()
 		bullet.collision_mask = bullet.collision_mask ^ 1 | 4
 		SignalBus.ActiveParticle.emit()
+		bounce_sound.play()
 		can_deflect = false
 		SignalBus.deflection_performed.emit()
 	deflection_timer.start()
@@ -92,13 +97,21 @@ func update_animation():
 	if animation_locked == false:
 		if input_direction.y > 0:
 			animated_sprite.play("walk down")
+			if steps_sound.playing == false:
+				steps_sound.play()
 		elif input_direction.y < 0:
 			animated_sprite.play("walk up")
+			if steps_sound.playing == false:
+				steps_sound.play()
 		elif input_direction.x > 0:
 			animated_sprite.flip_h = false
 			animated_sprite.play("walk side")
+			if steps_sound.playing == false:
+				steps_sound.play()
 		elif input_direction.x < 0:
 			animated_sprite.flip_h = true
 			animated_sprite.play("walk side")
+			if steps_sound.playing == false:
+				steps_sound.play()
 		else:
 			animated_sprite.play("idle")

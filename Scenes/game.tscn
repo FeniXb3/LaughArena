@@ -39,27 +39,43 @@ visible = false
 format = 2
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("6_40gdq")
 bus = &"Music"
 
 [node name="KingLaugh1" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("7_080df")
+volume_db = 5.0
+max_polyphony = 100
 bus = &"SFX"
 
 [node name="KingLaugh2" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("8_83ga7")
+volume_db = 5.0
+max_polyphony = 100
 bus = &"SFX"
 
 [node name="KingLaugh3" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("9_sr7r0")
+volume_db = 5.0
+max_polyphony = 100
 bus = &"SFX"
 
 [node name="KingLaugh4" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("10_jpw50")
+volume_db = 5.0
+max_polyphony = 100
 bus = &"SFX"
 
 [node name="KingLaugh5" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("11_hrehp")
+volume_db = 5.0
+max_polyphony = 100
 bus = &"SFX"
 
 [connection signal="start_game_pressed" from="MenuLayer/MainMenu" to="." method="_on_main_menu_start_game_pressed"]

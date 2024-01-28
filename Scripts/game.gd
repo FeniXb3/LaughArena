@@ -48,6 +48,7 @@ func _on_main_menu_start_game_pressed():
 	main_menu.hide()
 	#music_sound.volume_db = -25
 	#music_sound.pitch_scale = 2
+	SignalBus.game_started.emit()
 
 func _on_game_over():
 	#main_menu.open_main_menu()

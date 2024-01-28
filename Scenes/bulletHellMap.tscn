@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bdthgj4p76fdf"]
 
-[ext_resource type="PackedScene" uid="uid://qghuwpkvpyx3" path="res://Scenes/tile_map.tscn" id="3_jxnbw"]
+[ext_resource type="PackedScene" uid="uid://b7hqn16uvo8iw" path="res://Scenes/tile_map.tscn" id="3_jxnbw"]
 [ext_resource type="PackedScene" uid="uid://c77x8fmpt1ngl" path="res://Scenes/player2.tscn" id="5_y87s1"]
 [ext_resource type="PackedScene" uid="uid://dh1qfmobw6mjn" path="res://Scenes/health_bar.tscn" id="6_c27gw"]
 [ext_resource type="PackedScene" uid="uid://bj8al28eu20dd" path="res://Scenes/Director.tscn" id="6_g5hfq"]
@@ -64,6 +64,7 @@ position = Vector2(178, 927)
 position = Vector2(1742, 969)
 
 [node name="TileMap2" parent="." instance=ExtResource("3_jxnbw")]
+scale = Vector2(0.864123, 0.939155)
 
 [node name="player" parent="." instance=ExtResource("5_y87s1")]
 position = Vector2(819, 512)

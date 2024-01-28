@@ -18,6 +18,9 @@ var level : Node
 @onready var king_laugh_5 = $KingLaugh5
 var sounds : Array
 
+@onready var crowd_laugh_1 = $CrowdLaugh1
+
+
 func _ready():
 	SignalBus.game_over.connect(_on_game_over)
 	SignalBus.player_was_hit.connect(_on_player_was_hit)
@@ -28,8 +31,7 @@ func _ready():
 	else:
 		music_sound.play()
 		music_sound.pitch_scale = 0.5
-		
-	
+
 func _input(event):
 	if (event.is_action_pressed("ui_cancel") or event.is_action_pressed("pause")) and not pause_menu.visible:
 		pause_menu.open_pause_menu()
@@ -50,6 +52,7 @@ func _on_main_menu_start_game_pressed():
 func _on_game_over():
 	#main_menu.open_main_menu()
 	game_over_menu.open_menu()
+	crowd_laugh_1.play()
 	
 	#pause_menu.open_pause_menu()
 

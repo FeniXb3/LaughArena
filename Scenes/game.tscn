@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c3nqtlirxjjyy"]
+[gd_scene load_steps=13 format=3 uid="uid://c3nqtlirxjjyy"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_ue7yx"]
 [ext_resource type="PackedScene" uid="uid://dq6tvhqcy2aps" path="res://addons/EasyMenus/Scenes/main_menu.tscn" id="2_bhx7d"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://s46ttoy08v2f" path="res://Sounds/Laughter/Kings/kinglaugh3.wav" id="9_sr7r0"]
 [ext_resource type="AudioStream" uid="uid://c8b5beb75px6n" path="res://Sounds/Laughter/Kings/kinglaugh4.wav" id="10_jpw50"]
 [ext_resource type="AudioStream" uid="uid://dlvpqctbt1ce3" path="res://Sounds/Laughter/Kings/kinglaugh5.wav" id="11_hrehp"]
+[ext_resource type="AudioStream" uid="uid://b04em2mydayho" path="res://Sounds/Laughter/Crowd/crowdlaughending1.wav" id="12_dxct1"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_ue7yx")
@@ -75,6 +76,13 @@ bus = &"SFX"
 process_mode = 3
 stream = ExtResource("11_hrehp")
 volume_db = 5.0
+max_polyphony = 100
+bus = &"SFX"
+
+[node name="CrowdLaugh1" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("12_dxct1")
+volume_db = 10.0
 max_polyphony = 100
 bus = &"SFX"
 

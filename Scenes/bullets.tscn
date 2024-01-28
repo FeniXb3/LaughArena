@@ -20,7 +20,7 @@ max_contacts_reported = 5
 contact_monitor = true
 script = ExtResource("1_yqi0i")
 damage = 100.0
-push_force = 50000.0
+push_force = 10000.0
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(0.731878, 0.731878)

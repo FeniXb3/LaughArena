@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name  Player
 
 @onready var timer = $Timer
 @export var speed: float = 1
@@ -17,6 +18,7 @@ var can_deflect: bool = true
 var animation_locked = false
 
 
+
 func _ready():
 	SignalBus.health_decreased.connect(_on_health_decreased)
 	SignalBus.health_increased.connect(_on_health_increased)
@@ -31,6 +33,10 @@ func _on_health_decreased(value):
 	mass = clamp(mass - value, min_mass, max_mass)
 	if mass <= 0.01:
 		SignalBus.game_over.emit()
+	animated_sprite.modulate = Color(2.04,0.2,0.7)
+	await  get_tree().create_timer(0.1).timeout
+	animated_sprite.modulate = Color.WHITE
+	
 
 
 func _on_health_increased(regen):
@@ -63,8 +69,9 @@ func _deflection():
 		
 		bullet.linear_velocity = Vector2.ZERO
 		bullet.apply_impulse(direction * push_force)
+		bullet.EmitParticle()
 		bullet.collision_mask = bullet.collision_mask ^ 1 | 4
-		
+		SignalBus.ActiveParticle.emit()
 		can_deflect = false
 	deflection_timer.start()
 

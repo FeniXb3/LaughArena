@@ -2,6 +2,7 @@ extends RigidBody2D
 
 var direction: Vector2 = Vector2.RIGHT
 @export var damage: float = 1.0
+@onready var Particle = $GPUParticles2D
 #var speed: float = 300
 
 
@@ -9,7 +10,7 @@ func _on_screen_exited():
 	queue_free()
 
 func _on_body_entered(body):
-	if !body is RigidBody2D:
+	if not (body is RigidBody2D):
 		queue_free()
 		return
 	
@@ -20,4 +21,8 @@ func _on_body_entered(body):
 		body.queue_free()
 	queue_free()
 
-
+#func _ready():
+	#SignalBus.ActiveParticle.connect(EmitParticle)
+	
+func EmitParticle():
+	Particle.emitting = true

@@ -7,10 +7,10 @@
 bounce = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyc38"]
-size = Vector2(120, 120)
+size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkdj7"]
-size = Vector2(184, 184)
+size = Vector2(64, 64)
 
 [node name="player" type="RigidBody2D"]
 collision_mask = 46
@@ -28,6 +28,7 @@ health_regeneration = 0.001
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_mwaex")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

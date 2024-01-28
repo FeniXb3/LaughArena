@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://i4vfjjtivq8g" path="res://Scenes/turret2.tscn" id="8_ynnnl"]
 
 [node name="bullethell" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [137.0]
 
 [node name="Director" parent="." node_paths=PackedStringArray("turrets_parent", "ammo_parent") instance=ExtResource("6_g5hfq")]
 enemy_scene = ExtResource("8_ynnnl")
@@ -65,8 +66,20 @@ position = Vector2(1742, 969)
 [node name="TileMap2" parent="." instance=ExtResource("3_jxnbw")]
 
 [node name="player" parent="." instance=ExtResource("5_y87s1")]
-position = Vector2(861, 530)
+position = Vector2(819, 512)
+speed = 3.0
 health_regeneration = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(0, -2)
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+limit_smoothed = true
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

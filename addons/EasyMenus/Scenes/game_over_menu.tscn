@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c1fgxxi01q0n1"]
+[gd_scene load_steps=28 format=3 uid="uid://c1fgxxi01q0n1"]
 
 [ext_resource type="Script" path="res://addons/EasyMenus/Scripts/game_over_menu_controller.gd" id="1_3l5aj"]
 [ext_resource type="Texture2D" uid="uid://bv4p6g4h1ye5n" path="res://NEW-UI/OPTIONS1.png" id="2_537t2"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cmiyh36brebxi" path="res://NEW-UI/QUIT1.png" id="5_3bcya"]
 [ext_resource type="Texture2D" uid="uid://cjmtajaly4pxn" path="res://NEW-UI/QuitHove.png" id="6_3ppi3"]
 [ext_resource type="Texture2D" uid="uid://she5dddoyeod" path="res://NEW-UI/QuitPress (1).png" id="7_ry55a"]
+[ext_resource type="PackedScene" uid="uid://b5l4j5v1irfg3" path="res://Scenes/game_over_score.tscn" id="11_tanu3"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kto2u"]
 texture = ExtResource("2_e4ger")
@@ -85,7 +86,7 @@ theme_override_constants/separation = 15
 [node name="MenuLabel" type="Label" parent="Content"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 45
-text = "Game Over Menu"
+text = "Game Over"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="Content"]
@@ -125,6 +126,9 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_asqiq")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_k26q4")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_g5cq6")
 theme_override_styles/focus = SubResource("StyleBoxTexture_5ffsn")
+
+[node name="GameOverScore" parent="Content" instance=ExtResource("11_tanu3")]
+layout_mode = 2
 
 [node name="OptionsMenu" parent="." instance=ExtResource("2_p5nu7")]
 unique_name_in_owner = true

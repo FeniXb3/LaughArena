@@ -1,15 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://byh3flua4ky2f"]
 
 [ext_resource type="Script" path="res://Scripts/bullets.gd" id="1_yqi0i"]
-[ext_resource type="Texture2D" uid="uid://cr64bvw8yhm7s" path="res://Scenes/Chocolatecake.png" id="2_hm7ba"]
-[ext_resource type="PackedScene" path="res://efekt odbicia.tscn" id="3_oceas"]
+[ext_resource type="Texture2D" uid="uid://u410pvevjujs" path="res://Milk.png" id="2_fpgua"]
+[ext_resource type="PackedScene" uid="uid://ckwwkuyuq0hgj" path="res://efekt odbicia.tscn" id="3_oceas"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0d3hf"]
 bounce = 0.45
 absorbent = true
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_sf7j6"]
-radius = 32.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wiywj"]
 
 [node name="bullets" type="RigidBody2D"]
 collision_layer = 2
@@ -27,13 +26,14 @@ position = Vector2(0, -1.19209e-07)
 scale = Vector2(0.666667, 0.666667)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.228488, 0.228488)
-texture = ExtResource("2_hm7ba")
+position = Vector2(0, -1)
+scale = Vector2(0.135164, 0.125129)
+texture = ExtResource("2_fpgua")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3.55271e-15)
-scale = Vector2(0.205522, 0.206586)
-shape = SubResource("CircleShape2D_sf7j6")
+position = Vector2(0, 1)
+scale = Vector2(0.541465, 0.522264)
+shape = SubResource("CapsuleShape2D_wiywj")
 
 [node name="GPUParticles2D" parent="." instance=ExtResource("3_oceas")]
 emitting = false

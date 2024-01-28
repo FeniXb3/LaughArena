@@ -33,7 +33,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_81rjx")
 hframes = 4
-frame = 3
+frame = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Sprite2D"]
 position = Vector2(0, -18)

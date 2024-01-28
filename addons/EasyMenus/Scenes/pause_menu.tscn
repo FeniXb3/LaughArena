@@ -1,13 +1,30 @@
-[gd_scene load_steps=19 format=3 uid="uid://rw7gdui8lu3n"]
+[gd_scene load_steps=27 format=3 uid="uid://rw7gdui8lu3n"]
 
 [ext_resource type="Script" path="res://addons/EasyMenus/Scripts/pause_menu_controller.gd" id="1_5etq0"]
+[ext_resource type="Texture2D" uid="uid://clwyc62ewptbi" path="res://NEW-UI/RESUME1.png" id="2_culvj"]
 [ext_resource type="PackedScene" uid="uid://qlskttl1wjr7" path="res://addons/EasyMenus/Scenes/options_menu.tscn" id="2_ejh0f"]
 [ext_resource type="Texture2D" uid="uid://bv4p6g4h1ye5n" path="res://NEW-UI/OPTIONS1.png" id="2_qyhyd"]
 [ext_resource type="Texture2D" uid="uid://bixib385jnomr" path="res://NEW-UI/OptionsHov.png" id="3_7uu3x"]
+[ext_resource type="Texture2D" uid="uid://v1his3l0b7y4" path="res://NEW-UI/RESUME2.png" id="3_h0et3"]
 [ext_resource type="Texture2D" uid="uid://f21m5djrxvil" path="res://OptionsPress.png" id="4_1oj5s"]
+[ext_resource type="Texture2D" uid="uid://bj6qmykrk3i47" path="res://NEW-UI/RESUME3.png" id="4_y38mb"]
 [ext_resource type="Texture2D" uid="uid://cmiyh36brebxi" path="res://NEW-UI/QUIT1.png" id="5_k6uyw"]
 [ext_resource type="Texture2D" uid="uid://cjmtajaly4pxn" path="res://NEW-UI/QuitHove.png" id="6_84gi5"]
 [ext_resource type="Texture2D" uid="uid://she5dddoyeod" path="res://NEW-UI/QuitPress (1).png" id="7_2y8sv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7dove"]
+texture = ExtResource("2_culvj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ql158"]
+texture = ExtResource("3_h0et3")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8he8w"]
+texture = ExtResource("4_y38mb")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lgp8n"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lrtfq"]
+texture = ExtResource("3_h0et3")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g2o2i"]
 texture = ExtResource("2_qyhyd")
@@ -77,11 +94,15 @@ layout_mode = 2
 
 [node name="ResumeGameButton" type="Button" parent="Content"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(350, 0)
+custom_minimum_size = Vector2(600, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
-text = "Resume"
+theme_override_styles/normal = SubResource("StyleBoxTexture_7dove")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ql158")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8he8w")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lgp8n")
+theme_override_styles/focus = SubResource("StyleBoxTexture_lrtfq")
 
 [node name="OptionsButton" type="Button" parent="Content"]
 custom_minimum_size = Vector2(600, 200)

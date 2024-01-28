@@ -12,6 +12,7 @@
 [node name="bullethell" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("8_etr2m")]
+position = Vector2(155, 1)
 
 [node name="Director" parent="." node_paths=PackedStringArray("turrets_parent", "ammo_parent") instance=ExtResource("6_g5hfq")]
 enemy_scene = ExtResource("8_ynnnl")

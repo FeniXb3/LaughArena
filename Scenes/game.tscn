@@ -30,5 +30,8 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 visible = false
 
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
 [connection signal="start_game_pressed" from="MenuLayer/MainMenu" to="." method="_on_main_menu_start_game_pressed"]
 [connection signal="start_game_pressed" from="MenuLayer/GameOverMenu" to="." method="_on_main_menu_start_game_pressed"]

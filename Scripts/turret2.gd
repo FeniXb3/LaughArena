@@ -17,7 +17,7 @@ func _physics_process(_delta):
 	
 func _aim():
 	ray_cast_2d.target_position = to_local(player.position)
-	look_at(player.position)
+	#look_at(player.position)
 
 func _on_timer_timeout():
 	_shoot()
@@ -28,5 +28,6 @@ func _shoot():
 	bullet.position = position
 	bullet.direction = (ray_cast_2d.target_position).normalized()
 	ammo_parent.add_child(bullet)
-	bullet.apply_impulse(Vector2.RIGHT.rotated(rotation) * BULLET_SPEED)
+	bullet.look_at(player.position)
+	bullet.apply_impulse(Vector2.RIGHT.rotated(bullet.rotation) * BULLET_SPEED)
 	bullet.angular_velocity = 30

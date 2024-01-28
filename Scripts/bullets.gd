@@ -23,8 +23,14 @@ func _on_screen_exited():
 	queue_free()
 
 func _on_body_entered(body):
-	if body.name == "player":
+	if !body is RigidBody2D:
+		return
+	
+	if body.collision_layer == 1:
 		SignalBus.health_decreased.emit(damage)
+	elif body.collision_layer == 4:
+		print(body.name)
+		body.queue_free()
 	queue_free()
 
 

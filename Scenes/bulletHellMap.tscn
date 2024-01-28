@@ -1,18 +1,15 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdthgj4p76fdf"]
+[gd_scene load_steps=8 format=3 uid="uid://bdthgj4p76fdf"]
 
-[ext_resource type="PackedScene" uid="uid://ceoeg04e6gurv" path="res://Scenes/water.tscn" id="5_3grh0"]
+[ext_resource type="PackedScene" uid="uid://qghuwpkvpyx3" path="res://Scenes/tile_map.tscn" id="3_jxnbw"]
 [ext_resource type="PackedScene" uid="uid://c77x8fmpt1ngl" path="res://Scenes/player2.tscn" id="5_y87s1"]
 [ext_resource type="PackedScene" uid="uid://dh1qfmobw6mjn" path="res://Scenes/health_bar.tscn" id="6_c27gw"]
 [ext_resource type="PackedScene" uid="uid://bj8al28eu20dd" path="res://Scenes/Director.tscn" id="6_g5hfq"]
 [ext_resource type="Script" path="res://Scenes/Score.gd" id="8_5n763"]
-[ext_resource type="PackedScene" path="res://Scenes/tile_map.tscn" id="8_etr2m"]
 [ext_resource type="Script" path="res://Scripts/game_over_text.gd" id="8_poi7o"]
 [ext_resource type="PackedScene" uid="uid://i4vfjjtivq8g" path="res://Scenes/turret2.tscn" id="8_ynnnl"]
 
 [node name="bullethell" type="Node2D"]
-
-[node name="TileMap" parent="." instance=ExtResource("8_etr2m")]
-position = Vector2(155, 1)
+metadata/_edit_horizontal_guides_ = [137.0]
 
 [node name="Director" parent="." node_paths=PackedStringArray("turrets_parent", "ammo_parent") instance=ExtResource("6_g5hfq")]
 enemy_scene = ExtResource("8_ynnnl")
@@ -66,13 +63,23 @@ position = Vector2(178, 927)
 [node name="Marker2D4" type="Marker2D" parent="Director/spawnery"]
 position = Vector2(1742, 969)
 
+[node name="TileMap2" parent="." instance=ExtResource("3_jxnbw")]
+
 [node name="player" parent="." instance=ExtResource("5_y87s1")]
-position = Vector2(861, 530)
+position = Vector2(819, 512)
+speed = 3.0
 health_regeneration = 1.0
 
-[node name="water2" parent="." instance=ExtResource("5_3grh0")]
-position = Vector2(642, 362)
-scale = Vector2(0.18, 0.6)
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(0, -2)
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 1920
+limit_bottom = 1080
+limit_smoothed = true
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -98,18 +105,19 @@ script = ExtResource("8_poi7o")
 
 [node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 1400
 alignment = 1
-
-[node name="Score" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 30
-text = "Score: 0"
-script = ExtResource("8_5n763")
 
 [node name="HealthBar" parent="CanvasLayer/MarginContainer/VBoxContainer" instance=ExtResource("6_c27gw")]
 custom_minimum_size = Vector2(270, 50)
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Score" type="Label" parent="CanvasLayer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 30
+text = "Score: 0"
+script = ExtResource("8_5n763")

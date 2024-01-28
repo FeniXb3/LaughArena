@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://ygudcqo7army"]
+[gd_scene load_steps=79 format=3 uid="uid://qghuwpkvpyx3"]
 
 [ext_resource type="Texture2D" uid="uid://10uhpgf28rew" path="res://Floor/candleA_01.png" id="1_u5ni4"]
 [ext_resource type="Texture2D" uid="uid://c5ny2k4cn4kn2" path="res://Floor/candleA_02.png" id="2_kscpv"]
@@ -29,8 +29,8 @@
 [ext_resource type="Texture2D" uid="uid://bvhwdqrjo6e6o" path="res://NinjaAdventure/Backgrounds/Tilesets/TilesetReliefDetail.png" id="27_3rlvm"]
 [ext_resource type="Texture2D" uid="uid://b1lgf1l4tb4in" path="res://NinjaAdventure/Backgrounds/Tilesets/TilesetVillageAbandoned.png" id="28_gyjte"]
 [ext_resource type="Texture2D" uid="uid://h3beq8ue4nbf" path="res://NinjaAdventure/Backgrounds/Tilesets/TilesetWater.png" id="29_aumit"]
-[ext_resource type="Texture2D" uid="uid://3sbeai08eaex" path="res://wasserzeug.png" id="30_6f8vk"]
-[ext_resource type="Texture2D" uid="uid://b2x61e5yr2177" path="res://clean-calm-water-animation.png" id="31_yo32j"]
+[ext_resource type="Texture2D" uid="uid://quenuro2x2ky" path="res://wasserzeug.png" id="30_6f8vk"]
+[ext_resource type="Texture2D" uid="uid://bv1mmusbesrhi" path="res://clean-calm-water-animation.png" id="31_yo32j"]
 [ext_resource type="Texture2D" uid="uid://de2ibw0load65" path="res://Floor/candleB_01.png" id="32_wob6a"]
 [ext_resource type="Texture2D" uid="uid://dor873ijpgb1" path="res://Floor/candleB_02.png" id="33_ibc5t"]
 [ext_resource type="Texture2D" uid="uid://cyjvickr4k187" path="res://Floor/candleB_03.png" id="34_pki84"]

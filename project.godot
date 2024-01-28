@@ -71,3 +71,8 @@ move_down={
 2d_physics/layer_4="Water"
 2d_physics/layer_5="Ground"
 2d_physics/layer_6="Walls"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=3
+textures/stretch/scale=1.0

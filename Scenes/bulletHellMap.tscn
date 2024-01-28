@@ -67,7 +67,6 @@ position = Vector2(1742, 969)
 
 [node name="player" parent="." instance=ExtResource("5_y87s1")]
 position = Vector2(819, 512)
-speed = 3.0
 health_regeneration = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -79,7 +78,7 @@ limit_right = 1920
 limit_bottom = 1080
 limit_smoothed = true
 position_smoothing_enabled = true
-rotation_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -1,37 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://c77x8fmpt1ngl"]
+[gd_scene load_steps=6 format=3 uid="uid://c77x8fmpt1ngl"]
 
 [ext_resource type="Script" path="res://Scripts/player2.gd" id="1_xvaa5"]
-[ext_resource type="Texture2D" uid="uid://bhqwr1lyppgy7" path="res://Player/idle/PERERABOTKA-idle-cycle-down.png" id="2_w6vup"]
+[ext_resource type="Texture2D" uid="uid://bhqwr1lyppgy7" path="res://Player/idle/PERERABOTKA-idle-cycle-down.png" id="2_4ucy3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ga2es"]
 bounce = 0.5
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k7ia0"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qyc38"]
+size = Vector2(20, 28)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mkdj7"]
-size = Vector2(184, 184)
-
-[sub_resource type="Animation" id="Animation_stxao"]
-resource_name = "Idle"
-length = 0.5
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 0, 3, 4]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_bsodo"]
-_data = {
-"Idle": SubResource("Animation_stxao")
-}
+size = Vector2(48, 56)
 
 [node name="player" type="RigidBody2D"]
 collision_mask = 46
@@ -42,20 +21,20 @@ can_sleep = false
 lock_rotation = true
 linear_damp = 5.0
 script = ExtResource("1_xvaa5")
-speed = 10.0
+speed = 3.0
 health_regeneration = 0.001
 
 [node name="ScoreTimer" type="Timer" parent="."]
 autostart = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_w6vup")
+scale = Vector2(1.48214, 1.48214)
+texture = ExtResource("2_4ucy3")
 hframes = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
-scale = Vector2(0.6879, 0.557363)
-shape = SubResource("CapsuleShape2D_k7ia0")
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_qyc38")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05
@@ -68,19 +47,13 @@ autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -1)
-scale = Vector2(0.0671546, 0.094039)
 collision_layer = 2
 collision_mask = 2
 input_pickable = false
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_mkdj7")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_bsodo")
-}
 
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

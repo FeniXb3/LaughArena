@@ -228,7 +228,7 @@ can_sleep = false
 lock_rotation = true
 linear_damp = 3.0
 script = ExtResource("1_xvaa5")
-speed = 3.0
+speed = 3.5
 health_regeneration = 0.001
 
 [node name="ScoreTimer" type="Timer" parent="."]

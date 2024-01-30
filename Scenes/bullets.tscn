@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/bullets.gd" id="1_yqi0i"]
 [ext_resource type="Texture2D" uid="uid://u410pvevjujs" path="res://Milk.png" id="2_fpgua"]
-[ext_resource type="PackedScene" uid="uid://ckwwkuyuq0hgj" path="res://efekt odbicia.tscn" id="3_oceas"]
+[ext_resource type="PackedScene" path="res://efekt odbicia.tscn" id="3_oceas"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0d3hf"]
 bounce = 0.45
@@ -20,7 +20,7 @@ max_contacts_reported = 5
 contact_monitor = true
 script = ExtResource("1_yqi0i")
 damage = 100.0
-push_force = 10000.0
+push_force = 15000.0
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(0.731878, 0.731878)

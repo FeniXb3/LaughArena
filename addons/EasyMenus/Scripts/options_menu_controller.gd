@@ -11,11 +11,14 @@ const HSliderWLabel = preload("res://addons/EasyMenus/Scripts/slider_w_labels.gd
 @onready var vsync_check_button: CheckButton = $%VSyncCheckButton
 @onready var anti_aliasing_2d_option_button: OptionButton = $%AntiAliasing2DOptionButton
 @onready var anti_aliasing_3d_option_button: OptionButton = $%AntiAliasing3DOptionButton
+@onready var game_speed_slider = %GameSpeedSlider
 
 var sfx_bus_index
 var music_bus_index
 var config = ConfigFile.new()
 
+func _ready():
+	prepare_options()	
 
 # Emits close signal and saves the options
 func go_back():
@@ -25,7 +28,9 @@ func go_back():
 # Called from outside initializes the options menu
 func on_open():
 	sfx_volume_slider.hslider.grab_focus()
+	prepare_options()
 	
+func prepare_options():
 	sfx_bus_index = AudioServer.get_bus_index(OptionsConstants.sfx_bus_name)
 	music_bus_index = AudioServer.get_bus_index(OptionsConstants.music_bus_name)
 	
@@ -50,7 +55,7 @@ func save_options():
 	config.set_value(OptionsConstants.section_name, OptionsConstants.vsync_key, vsync_check_button.button_pressed)
 	config.set_value(OptionsConstants.section_name, OptionsConstants.msaa_2d_key, anti_aliasing_2d_option_button.get_selected_id())
 	config.set_value(OptionsConstants.section_name, OptionsConstants.msaa_3d_key, anti_aliasing_3d_option_button.get_selected_id())
-	
+	config.set_value(OptionsConstants.section_name, OptionsConstants.speed_key_name, game_speed_slider.hslider.value)
 	config.save(OptionsConstants.config_file_name)
 
 # Loads options and sets the controls values to loaded values. Uses default values if config file
@@ -65,13 +70,13 @@ func load_options():
 	var vsync = config.get_value(OptionsConstants.section_name, OptionsConstants.vsync_key, true)
 	var msaa_2d = config.get_value(OptionsConstants.section_name, OptionsConstants.msaa_2d_key, 0)
 	var msaa_3d = config.get_value(OptionsConstants.section_name, OptionsConstants.msaa_3d_key, 0)
-
+	var speed =  config.get_value(OptionsConstants.section_name, OptionsConstants.speed_key_name, 1)
 	sfx_volume_slider.hslider.value = sfx_volume
 	music_volume_slider.hslider.value = music_volume
 	fullscreen_check_button.button_pressed = fullscreen
 	render_scale_slider.value = render_scale
-	
-	# Need to set it like that to guarantee signal to be triggered
+	game_speed_slider.hslider.value = speed
+	# Need to set it like that to guarantee signal to be trigwgered
 	vsync_check_button.set_pressed_no_signal(vsync)
 	vsync_check_button.emit_signal("toggled", vsync)
 	
@@ -126,3 +131,7 @@ func _input(event):
 	if event.is_action_pressed("ui_cancel") && visible:
 		accept_event()
 		go_back()
+
+
+func _on_game_speed_slider_value_changed(value):
+	Engine.time_scale = value

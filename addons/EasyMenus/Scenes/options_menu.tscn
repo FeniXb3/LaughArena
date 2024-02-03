@@ -100,6 +100,18 @@ text = "Music Volume"
 max_value = 1.0
 step = 0.1
 
+[node name="GameSpeedSlider" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_xghjq")]
+unique_name_in_owner = true
+layout_mode = 2
+title = "Game Speed"
+
+[node name="Title" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/GameSpeedSlider" index="0"]
+text = "Game Speed"
+
+[node name="HSlider" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/GameSpeedSlider" index="1"]
+max_value = 1.0
+step = 0.1
+
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
@@ -233,6 +245,7 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_m2net")
 
 [connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
+[connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/GameSpeedSlider" to="." method="_on_game_speed_slider_value_changed"]
 [connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/FullscreenCheckButton" to="." method="_on_fullscreen_check_button_toggled"]
 [connection signal="toggled" from="MarginContainer/ScrollContainer/VBoxContainer/VSyncCheckButton" to="." method="_on_v_sync_check_button_toggled"]
 [connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer/RenderScaleSlider" to="." method="_on_render_scale_slider_value_changed"]
@@ -242,3 +255,4 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_m2net")
 
 [editable path="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SFXVolumeSlider"]
 [editable path="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/MusicVolumeSlider"]
+[editable path="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/GameSpeedSlider"]

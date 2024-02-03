@@ -135,3 +135,4 @@ func _input(event):
 
 func _on_game_speed_slider_value_changed(value):
 	Engine.time_scale = value
+	AudioServer.playback_speed_scale = value

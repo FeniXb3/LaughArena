@@ -52,9 +52,9 @@ func _process(_delta):
 	get_input()
 	update_animation()
 
-func _physics_process(_delta):
-	move_and_collide(input_direction * speed)
-	
+func _physics_process(delta):
+	move_and_collide(input_direction * speed * delta)	
+
 	if can_deflect && Input.is_action_just_pressed("Shoot"):
 		animation_locked = true
 		_deflection()

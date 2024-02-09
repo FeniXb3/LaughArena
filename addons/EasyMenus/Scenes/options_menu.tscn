@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://qlskttl1wjr7"]
+[gd_scene load_steps=20 format=3 uid="uid://qlskttl1wjr7"]
 
 [ext_resource type="Script" path="res://addons/EasyMenus/Scripts/options_menu_controller.gd" id="1_h6k46"]
 [ext_resource type="Script" path="res://addons/EasyMenus/Scripts/follow_focus_center.gd" id="2_l3n3h"]
@@ -6,15 +6,20 @@
 [ext_resource type="Script" path="res://addons/EasyMenus/Scripts/option_button_input_propagator.gd" id="4_02jwa"]
 [ext_resource type="PackedScene" uid="uid://cqniig2ks0xs2" path="res://addons/EasyMenus/Nodes/gamepad_closable.tscn" id="5_k4nlh"]
 [ext_resource type="Texture2D" uid="uid://fqowbro13ijp" path="res://NEW-UI/BACK1.png" id="6_my1ib"]
+[ext_resource type="Texture2D" uid="uid://f3w2gjxheupt" path="res://NEW-UI/button_normal.png" id="6_s3jfm"]
 [ext_resource type="Texture2D" uid="uid://cov3xecd6aejs" path="res://NEW-UI/BACK2.png" id="7_m63cm"]
 [ext_resource type="Texture2D" uid="uid://cq1gxo8a57cm0" path="res://NEW-UI/BACK3.png" id="8_lx2lk"]
+[ext_resource type="PackedScene" uid="uid://b5p5raa7ders5" path="res://addons/inputty/Rebind/InputtyRebindScene.tscn" id="10_3dbmw"]
 
 [sub_resource type="Theme" id="Theme_vsiix"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x77mt"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ufyq"]
-texture = ExtResource("6_my1ib")
+[sub_resource type="SystemFont" id="SystemFont_wpy8f"]
+font_names = PackedStringArray("Liberation Mono")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6b5a6"]
+texture = ExtResource("6_s3jfm")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dfoph"]
 texture = ExtResource("7_m63cm")
@@ -27,6 +32,9 @@ texture = ExtResource("8_lx2lk")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m2net"]
 texture = ExtResource("7_m63cm")
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ufyq"]
+texture = ExtResource("6_my1ib")
+
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -37,6 +45,7 @@ grow_vertical = 2
 script = ExtResource("1_h6k46")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+unique_name_in_owner = true
 layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -231,6 +240,20 @@ layout_mode = 2
 theme_override_constants/separation = 50
 theme_override_styles/separator = SubResource("StyleBoxEmpty_x77mt")
 
+[node name="ControlsButton" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(600, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = SubResource("SystemFont_wpy8f")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxTexture_6b5a6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_dfoph")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6yxs5")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2hgs7")
+theme_override_styles/focus = SubResource("StyleBoxTexture_m2net")
+text = "Controls"
+
 [node name="BackButton" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(600, 200)
 layout_mode = 2
@@ -243,6 +266,11 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_6yxs5")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_2hgs7")
 theme_override_styles/focus = SubResource("StyleBoxTexture_m2net")
 
+[node name="InputRemap" parent="." instance=ExtResource("10_3dbmw")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
 [connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/MusicVolumeSlider" to="." method="_on_music_volume_slider_value_changed"]
 [connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/GameSpeedSlider" to="." method="_on_game_speed_slider_value_changed"]
@@ -251,7 +279,9 @@ theme_override_styles/focus = SubResource("StyleBoxTexture_m2net")
 [connection signal="value_changed" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer2/VBoxContainer/RenderScaleSlider" to="." method="_on_render_scale_slider_value_changed"]
 [connection signal="item_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer3/VBoxContainer/AntiAliasing2DOptionButton" to="." method="_on_anti_aliasing_2d_option_button_item_selected"]
 [connection signal="item_selected" from="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer3/VBoxContainer/AntiAliasing3DOptionButton" to="." method="_on_anti_aliasing_3d_option_button_item_selected"]
+[connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
 [connection signal="pressed" from="MarginContainer/ScrollContainer/VBoxContainer/BackButton" to="." method="go_back"]
+[connection signal="exit_requested" from="InputRemap" to="." method="hide_controls_options"]
 
 [editable path="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SFXVolumeSlider"]
 [editable path="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/MusicVolumeSlider"]

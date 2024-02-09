@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 
 SignalBus="*res://Scripts/signal_bus.gd"
 MenuTemplateManager="*res://addons/EasyMenus/Nodes/menu_template_manager.tscn"
+Inputty="*res://addons/inputty/Inputty.gd"
 
 [display]
 
@@ -28,7 +29,7 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/script-ide/plugin.cfg", "res://addons/sprite_painter/plugin.cfg")
+enabled=PackedStringArray("res://addons/inputty/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/sprite_painter/plugin.cfg")
 
 [input]
 

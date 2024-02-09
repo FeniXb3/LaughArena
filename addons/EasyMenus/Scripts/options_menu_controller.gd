@@ -12,6 +12,9 @@ const HSliderWLabel = preload("res://addons/EasyMenus/Scripts/slider_w_labels.gd
 @onready var anti_aliasing_2d_option_button: OptionButton = $%AntiAliasing2DOptionButton
 @onready var anti_aliasing_3d_option_button: OptionButton = $%AntiAliasing3DOptionButton
 @onready var game_speed_slider = %GameSpeedSlider
+@onready var input_remap = %InputRemap
+@onready var content = %MarginContainer
+
 
 var sfx_bus_index
 var music_bus_index
@@ -130,9 +133,22 @@ func set_msaa(mode, index):
 func _input(event):
 	if event.is_action_pressed("ui_cancel") && visible:
 		accept_event()
-		go_back()
+		if input_remap.visible:
+			hide_controls_options()
+		else:
+			go_back()
 
 
 func _on_game_speed_slider_value_changed(value):
 	Engine.time_scale = value
 	AudioServer.playback_speed_scale = value
+
+
+func _on_controls_button_pressed():
+	content.hide()
+	input_remap.show()
+
+func hide_controls_options():
+	input_remap.hide()
+	content.show()
+	on_open()

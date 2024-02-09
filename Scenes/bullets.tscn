@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://byh3flua4ky2f"]
+[gd_scene load_steps=7 format=3 uid="uid://byh3flua4ky2f"]
 
 [ext_resource type="Script" path="res://Scripts/bullets.gd" id="1_yqi0i"]
 [ext_resource type="Texture2D" uid="uid://u410pvevjujs" path="res://Milk.png" id="2_fpgua"]
 [ext_resource type="PackedScene" path="res://efekt odbicia.tscn" id="3_oceas"]
+[ext_resource type="Texture2D" uid="uid://ccx0vgafv40ka" path="res://pointer.png" id="3_wi255"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0d3hf"]
 bounce = 0.45
@@ -21,6 +22,7 @@ contact_monitor = true
 script = ExtResource("1_yqi0i")
 damage = 100.0
 push_force = 15000.0
+deflected_color = Color(0.921569, 0.713726, 0.784314, 1)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(0.731878, 0.731878)
@@ -29,6 +31,12 @@ scale = Vector2(0.731878, 0.731878)
 position = Vector2(0, -1)
 scale = Vector2(0.135164, 0.125129)
 texture = ExtResource("2_fpgua")
+
+[node name="Mark" type="Sprite2D" parent="Sprite2D"]
+visible = false
+position = Vector2(0, 20)
+scale = Vector2(3, 3)
+texture = ExtResource("3_wi255")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)

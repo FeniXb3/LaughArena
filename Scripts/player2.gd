@@ -71,12 +71,8 @@ func _deflection():
 	var bulletsArray = area_2d.get_overlapping_bodies()
 	for bullet in bulletsArray:
 		var direction = (bullet.transform.origin - transform.origin)
+		bullet.deflect(direction * push_force)
 		
-		bullet.linear_velocity = Vector2.ZERO
-		bullet.apply_impulse(direction * push_force)
-		bullet.EmitParticle()
-		bullet.collision_mask = bullet.collision_mask ^ 1 | 4
-		SignalBus.ActiveParticle.emit()
 		bounce_sound.play()
 		score_added = 2
 		score += score_added

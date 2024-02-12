@@ -1,7 +1,7 @@
 extends Label
 
 func _ready():
-	SignalBus.game_over.connect(_on_game_over)
+	pass#SignalBus.game_over.connect(_on_game_over)
 	
 func _on_game_over():
 	print("Game Over")

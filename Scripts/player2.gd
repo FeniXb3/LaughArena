@@ -1,6 +1,8 @@
 extends RigidBody2D
 class_name  Player
 
+@export var move_enabled = true
+@export var is_dead = false
 @onready var timer = $Timer
 @export var speed: float = 1
 @export var health_regeneration: float = 1
@@ -25,13 +27,21 @@ func _ready():
 	SignalBus.health_decreased.connect(_on_health_decreased)
 	SignalBus.health_increased.connect(_on_health_increased)
 	SignalBus.deflection_enabled.connect(_on_deflection_enabled)
+	SignalBus.game_over.connect(_on_game_over)
+	move_enabled = true
 
 
 func get_input():
-	input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")  if move_enabled else Vector2.ZERO
 	
 	
-
+func _on_game_over():
+	move_enabled = false
+	is_dead = true
+	collision_layer = 0
+	animated_sprite.play("die")
+	modulate = Color.WEB_MAROON
+	steps_sound.stop()
 
 func _on_health_decreased(value):
 	mass = clamp(mass - value, min_mass, max_mass)
@@ -53,6 +63,9 @@ func _process(_delta):
 	update_animation()
 
 func _physics_process(delta):
+	if is_dead:
+		return
+		
 	move_and_collide(input_direction * speed * delta)	
 
 	if can_deflect && Input.is_action_just_pressed("Shoot"):
@@ -113,5 +126,5 @@ func update_animation():
 			animated_sprite.play("walk side")
 			if steps_sound.playing == false:
 				steps_sound.play()
-		else:
+		elif not is_dead:
 			animated_sprite.play("idle")

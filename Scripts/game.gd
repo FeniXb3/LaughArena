@@ -7,6 +7,7 @@ extends Node2D
 @onready var pause_menu = %PauseMenu
 @onready var game_over_menu = %GameOverMenu
 @onready var music_sound = $Music
+@onready var game_over_screen_delay = 3.0
 
 @onready var level_parent = $LevelParent
 var level : Node
@@ -52,8 +53,9 @@ func _on_main_menu_start_game_pressed():
 
 func _on_game_over():
 	#main_menu.open_main_menu()
-	game_over_menu.open_menu()
 	crowd_laugh_1.play()
+	await get_tree().create_timer(game_over_screen_delay).timeout
+	game_over_menu.open_menu()
 	
 	#pause_menu.open_pause_menu()
 

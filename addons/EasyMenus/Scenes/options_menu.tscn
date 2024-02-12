@@ -1,39 +1,14 @@
-[gd_scene load_steps=20 format=3 uid="uid://qlskttl1wjr7"]
+[gd_scene load_steps=9 format=3 uid="uid://qlskttl1wjr7"]
 
 [ext_resource type="Script" path="res://addons/EasyMenus/Scripts/options_menu_controller.gd" id="1_h6k46"]
 [ext_resource type="Script" path="res://addons/EasyMenus/Scripts/follow_focus_center.gd" id="2_l3n3h"]
 [ext_resource type="PackedScene" uid="uid://dyfwp0vhgfjd7" path="res://addons/EasyMenus/Nodes/slider_w_labels.tscn" id="3_xghjq"]
 [ext_resource type="Script" path="res://addons/EasyMenus/Scripts/option_button_input_propagator.gd" id="4_02jwa"]
 [ext_resource type="PackedScene" uid="uid://cqniig2ks0xs2" path="res://addons/EasyMenus/Nodes/gamepad_closable.tscn" id="5_k4nlh"]
-[ext_resource type="Texture2D" uid="uid://fqowbro13ijp" path="res://NEW-UI/BACK1.png" id="6_my1ib"]
-[ext_resource type="Texture2D" uid="uid://f3w2gjxheupt" path="res://NEW-UI/button_normal.png" id="6_s3jfm"]
-[ext_resource type="Texture2D" uid="uid://cov3xecd6aejs" path="res://NEW-UI/BACK2.png" id="7_m63cm"]
-[ext_resource type="Texture2D" uid="uid://cq1gxo8a57cm0" path="res://NEW-UI/BACK3.png" id="8_lx2lk"]
+[ext_resource type="Theme" uid="uid://bv435ve6hqff8" path="res://addons/EasyMenus/Scenes/ui_theme.tres" id="6_tudrp"]
 [ext_resource type="PackedScene" uid="uid://b5p5raa7ders5" path="res://addons/inputty/Rebind/InputtyRebindScene.tscn" id="10_3dbmw"]
 
-[sub_resource type="Theme" id="Theme_vsiix"]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x77mt"]
-
-[sub_resource type="SystemFont" id="SystemFont_wpy8f"]
-font_names = PackedStringArray("Liberation Mono")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6b5a6"]
-texture = ExtResource("6_s3jfm")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dfoph"]
-texture = ExtResource("7_m63cm")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6yxs5"]
-texture = ExtResource("8_lx2lk")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2hgs7"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m2net"]
-texture = ExtResource("7_m63cm")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ufyq"]
-texture = ExtResource("6_my1ib")
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
@@ -83,6 +58,7 @@ theme_override_constants/margin_right = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="SFXVolumeSlider" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_xghjq")]
 unique_name_in_owner = true
@@ -93,7 +69,6 @@ title = "SFX Volume"
 text = "SFX Volume"
 
 [node name="HSlider" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/SFXVolumeSlider" index="1"]
-theme = SubResource("Theme_vsiix")
 max_value = 1.0
 step = 0.1
 
@@ -108,6 +83,10 @@ text = "Music Volume"
 [node name="HSlider" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer/MusicVolumeSlider" index="1"]
 max_value = 1.0
 step = 0.1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="GameSpeedSlider" parent="MarginContainer/ScrollContainer/VBoxContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_xghjq")]
 unique_name_in_owner = true
@@ -130,7 +109,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 25
+theme = ExtResource("6_tudrp")
 text = "Fullscreen"
 
 [node name="VSyncCheckButton" type="CheckButton" parent="MarginContainer/ScrollContainer/VBoxContainer"]
@@ -245,13 +224,7 @@ custom_minimum_size = Vector2(600, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_fonts/font = SubResource("SystemFont_wpy8f")
-theme_override_font_sizes/font_size = 70
-theme_override_styles/normal = SubResource("StyleBoxTexture_6b5a6")
-theme_override_styles/hover = SubResource("StyleBoxTexture_dfoph")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6yxs5")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_2hgs7")
-theme_override_styles/focus = SubResource("StyleBoxTexture_m2net")
+theme = ExtResource("6_tudrp")
 text = "Controls"
 
 [node name="BackButton" type="Button" parent="MarginContainer/ScrollContainer/VBoxContainer"]
@@ -259,12 +232,8 @@ custom_minimum_size = Vector2(600, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_font_sizes/font_size = 25
-theme_override_styles/normal = SubResource("StyleBoxTexture_2ufyq")
-theme_override_styles/hover = SubResource("StyleBoxTexture_dfoph")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_6yxs5")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_2hgs7")
-theme_override_styles/focus = SubResource("StyleBoxTexture_m2net")
+theme = ExtResource("6_tudrp")
+text = "Back"
 
 [node name="InputRemap" parent="." instance=ExtResource("10_3dbmw")]
 unique_name_in_owner = true

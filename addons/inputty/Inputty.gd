@@ -336,8 +336,8 @@ func _pollJoys()->void:
 
 
 func _pickIconSet(device:int, n:String=""):
-	if !Input.is_joy_known(device):
-		return null
+	#if !Input.is_joy_known(device):
+		#return null
 	
 	if _resources.controllerIconSets.size()==0:
 		print_debug("NO INPUT ICON SETS LOADED")

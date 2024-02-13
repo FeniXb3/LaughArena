@@ -43,6 +43,7 @@ func _on_game_over():
 	modulate = Color.WEB_MAROON
 	steps_sound.stop()
 	timer.stop()
+	score_timer.stop()
 
 func _on_health_decreased(value):
 	mass = clamp(mass - value, min_mass, max_mass)

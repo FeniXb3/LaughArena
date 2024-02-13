@@ -31,6 +31,10 @@ window/stretch/mode="viewport"
 
 enabled=PackedStringArray("res://addons/inputty/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/sprite_painter/plugin.cfg")
 
+[gui]
+
+theme/custom="res://ui_theme.tres"
+
 [input]
 
 move_left={

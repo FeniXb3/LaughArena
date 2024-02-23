@@ -5,13 +5,15 @@ class_name ActionRebind
 @export var actionDisplay := ""
 
 @export var actionInputPrefab:PackedScene
+@onready var container = %Container
+@onready var action_label = %ActionLabel
 
 var inputUIs:Array[Control]=[]
 
 var customAction:InputtyAction
 
 func _ready():
-	$ActionLabel.text = actionDisplay
+	action_label.text = actionDisplay
 	
 	for i in customAction.inputs.size():
 		addInput(i)
@@ -44,7 +46,7 @@ func addNewInput():
 
 func addInput(i:int):
 	var newInputUI:Control = actionInputPrefab.instantiate()
-	add_child(newInputUI)
+	container.add_child(newInputUI)
 	newInputUI.get_child(0).connect("pressed",beginRebindInput.bind(i))
 	newInputUI.get_child(1).connect("pressed",addOrRemove.bind(i))
 	inputUIs.append(newInputUI)

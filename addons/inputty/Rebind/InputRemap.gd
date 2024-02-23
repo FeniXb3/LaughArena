@@ -2,6 +2,7 @@ extends Control
 class_name InputRemap
 
 signal exit_requested
+@onready var controls_container = %ControlsContainer
 
 @export var actionNames:Array[StringName]
 @export var actionDisplayNames:Array[String]
@@ -93,7 +94,7 @@ func BuildUI():
 		
 		newPropertyUI.customProperty = workingMap.properties[i]
 		
-		$ScrollContainer/GridContainer.add_child(newPropertyUI)
+		controls_container.add_child(newPropertyUI)
 		
 	
 	for i in actionUIs.size():
@@ -123,7 +124,7 @@ func BuildUI():
 		
 		newRebindUI.customAction = workingMap.getAction(actionNames[i])
 		
-		$ScrollContainer/GridContainer.add_child(newRebindUI)
+		controls_container.add_child(newRebindUI)
 	
 
 func allowActionRebinding(n:StringName):
